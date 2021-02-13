@@ -1,0 +1,72 @@
+
+=== 02/12/2021 12:42:52 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.01, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 12:43:14 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:02:37 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:02:37 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:04:33 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:10:17 AM run ===
+
+{'ESH1': '1', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:10:40 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:11:02 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.1', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'MSFT': '', 'AMZN': ''}
+
+=== 02/12/2021 01:16:15 AM run ===
+
+New parameters:
+{'products': 'ESH1, ZNH1, AAPL, IBM, MSFT', 'timeframe': '30 mins', 'size': '1', 'max_current_high_prd': '20', 'max_past_high_lag': '10', 'max_past_high_prd': '10', 'min_current_low_prd': '20', 'min_past_low_lag': '10', 'min_past_low_prd': '10', 'percent_change_lag': '1.0', 'sd_lag': '10', 'tick': '1.0', 'stop_limit_ticks': '3.0', 'norm_threshold': '0.7', 'max_prd_hold': '10', 'target_sd': '2.0', 'stop_sd': '4.0', 'max_stop_sd': '6.0'}
+File path:
+settings/generalParams.json
+
+
+=== 02/12/2021 01:33:55 AM run ===
+
+New parameters:
+{'products': 'ESH1, ZNH1, AAPL, IBM', 'timeframe': '30 mins', 'size': '1', 'max_current_high_prd': '20', 'max_past_high_lag': '10', 'max_past_high_prd': '10', 'min_current_low_prd': '20', 'min_past_low_lag': '10', 'min_past_low_prd': '10', 'percent_change_lag': '1.0', 'sd_lag': '10', 'tick': '1.0', 'stop_limit_ticks': '3.0', 'norm_threshold': '0.7', 'max_prd_hold': '10', 'target_sd': '2.0', 'stop_sd': '4.0', 'max_stop_sd': '6.0'}
+File path:
+settings/generalParams.json
+
+
+=== 02/12/2021 01:34:17 AM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': ''}
+
+=== 02/12/2021 01:34:30 AM run ===
+
+New parameters:
+{'products': 'ESH1, ZNH1, AAPL, IBM, AMZN', 'timeframe': '30 mins', 'size': '1', 'max_current_high_prd': '20', 'max_past_high_lag': '10', 'max_past_high_prd': '10', 'min_current_low_prd': '20', 'min_past_low_lag': '10', 'min_past_low_prd': '10', 'percent_change_lag': '1.0', 'sd_lag': '10', 'tick': '1.0', 'stop_limit_ticks': '3.0', 'norm_threshold': '0.7', 'max_prd_hold': '10', 'target_sd': '2.0', 'stop_sd': '4.0', 'max_stop_sd': '6.0'}
+File path:
+settings/generalParams.json
+
+
+=== 02/12/2021 11:06:07 PM run ===
+
+New parameters:
+{'products': 'ESH1, ZNH1, AAPL, IBM, AMZN', 'timeframe': '30 mins', 'size': '2', 'max_current_high_prd': '20', 'max_past_high_lag': '10', 'max_past_high_prd': '10', 'min_current_low_prd': '20', 'min_past_low_lag': '10', 'min_past_low_prd': '10', 'percent_change_lag': '1.0', 'sd_lag': '10', 'tick': '1.0', 'stop_limit_ticks': '3.0', 'norm_threshold': '0.7', 'max_prd_hold': '10', 'target_sd': '2.0', 'stop_sd': '4.0', 'max_stop_sd': '6.0'}
+File path:
+settings/generalParams.json
+
+
+=== 02/12/2021 11:06:34 PM run ===
+
+{'ESH1': 'tick = 0.25, percent_entry = 0.2', 'ZNH1': 'tick = (1/64)', 'AAPL': 'tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60', 'IBM': '', 'AMZN': ''}

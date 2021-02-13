@@ -1,8 +1,4 @@
 /.idea
 /venv
-/db.sqlite3
-/users/migrations
-/screener/migrations
-/alert/migrations
 __pycache__/
-venv
+/temp
