@@ -11,9 +11,6 @@ import json
 import logging
 from datetime import datetime
 
-from ib_insync import *
-from engine import Engine
-
 INIT_PRODUCTS = "ESH1, ZNH1, AAPL"
 INIT_TIMEFRAME = "15 mins"
 INIT_SIZE = "1"
@@ -169,34 +166,33 @@ class MainThread(QThread):
         self.params = params
         self.conn_state = False
 
-        try:
-            self.ib = IB()
-            self.ib.connect(self.localh_host, self.port_num, clientId=23)
-            self.conn_state = True
-            logging.getLogger().debug("Successfully connected!")
-        except Exception as e:
-            logging.getLogger().debug(e)
-            self.ib.disconnect()
-            self.terminate()
-
     def run(self):
+        self.conn_state = True
         state_msg = {"connection": self.conn_state}
         self.countChanged.emit(str(state_msg))
-        engine = Engine(params=self.params)
-        while self.conn_state:
-            try:
-                engine.start()
-                print("Engine started")
-                time.sleep(5)
-            except Exception as e:
-                print(e)
-            time.sleep(1)
+        try:
+            with open("settings/app_status.txt", "w") as f:
+                f.write("ON")
+                f.close()
+        except Exception as e:
+            print(e)
+
+        time.sleep(1)
+        print("App started!")
+        logging.getLogger().debug("App started!")
 
     def stop(self):
-        self.ib.disconnect()
         self.conn_state = False
-        print("Disconnected")
-        logging.getLogger().debug("Successfully disconnected!")
+        try:
+            with open("settings/app_status.txt", "w") as f:
+                f.write("OFF")
+                f.close()
+        except Exception as e:
+            print(e)
+
+        time.sleep(1)
+        print("App stopped!")
+        logging.getLogger().debug("App stopped!")
         self.terminate()
 
 
@@ -820,7 +816,7 @@ class SettingsWindow(QWidget):
         super().mouseReleaseEvent(event)
 
 
-if __name__ == '__main__':
+def main():
     import sys
 
     global app

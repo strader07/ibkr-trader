@@ -1,0 +1,4812 @@
+
+=== 02/16/2021 11:57:24 PM client ===
+
+Connecting to 127.0.0.1:7497 with clientId 23...
+
+=== 02/16/2021 11:57:24 PM client ===
+
+Connected
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 152,20210216 23:57:21 Central Standard Time
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 71,2,23,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+Logged on to server version 152
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 9,1,2502
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 15,1,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:57:24 PM client ===
+
+API connection ready
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 4,2,-1,2158,Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 99,0
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 102
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 6,2,1,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 61,1
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 7,3,2502,0,,,,,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccountCode,DU2738121,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccountReady,true,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccountType,INDIVIDUAL,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedCash,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedCash,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedCash-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedCash-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedDividend-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AccruedDividend-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,AvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Billable,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Billable-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Billable-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,BuyingPower,96790.46,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,CashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,CashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Currency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Currency,USD,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Cushion,0.623075,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,DayTradesRemaining,-1,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,DayTradesRemainingT+1,-1,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,DayTradesRemainingT+2,-1,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,DayTradesRemainingT+3,-1,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,DayTradesRemainingT+4,-1,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,EquityWithLoanValue,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,EquityWithLoanValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,EquityWithLoanValue-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,ExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,ExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,ExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FullMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,GrossPositionValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,GrossPositionValue-S,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Guarantee,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Guarantee-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Guarantee-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,IndianStockHaircut,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,IndianStockHaircut-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,IndianStockHaircut-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,InitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,InitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,InitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,Leverage-S,0.41,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,LookAheadNextChange,0,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NLVAndMarginInReview,false,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetDividend,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidation,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidation-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidation-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,NetLiquidationUncertainty,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PASharesValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PASharesValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PASharesValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PhysicalCertificateValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationExcess,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationExcess-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationExcess-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationMargin,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationMargin-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,PostExpirationMargin-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RealCurrency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RealCurrency,USD,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RegTEquity,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RegTEquity-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RegTMargin,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,RegTMargin-S,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,SMA,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,SMA-S,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,SegmentTitle-C,US Commodities,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,SegmentTitle-S,US Securities,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TBillValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TBillValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalCashValue,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalCashValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalCashValue-S,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,TradingType-S,STKNOPT,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,WarrantValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,WarrantValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 6,2,WhatIfPMEnabled,true,,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,277296974,AREC,STK,,0,0,,NASDAQ,USD,AREC,SCM,292,6.73,1965.16,4.165,748.98,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=277296974, symbol='AREC', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, marketPrice=6.73, marketValue=1965.16, averageCost=4.165, unrealizedPNL=748.98, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,395179962,CLSK,STK,,0,0,,NASDAQ,USD,CLSK,SCM,41,29.3500004,1203.35,28.90439025,18.27,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=395179962, symbol='CLSK', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, marketPrice=29.3500004, marketValue=1203.35, averageCost=28.90439025, unrealizedPNL=18.27, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,302999891,EVFM,STK,,0,0,,NASDAQ,USD,EVFM,SCM,363,3.98,1444.74,3.355,226.88,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=302999891, symbol='EVFM', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, marketPrice=3.98, marketValue=1444.74, averageCost=3.355, unrealizedPNL=226.88, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,126993722,GWPH,STK,,0,0,,NASDAQ,USD,GWPH,NMS,5,213.5,1067.5,214.45,-4.75,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=126993722, symbol='GWPH', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, marketPrice=213.5, marketValue=1067.5, averageCost=214.45, unrealizedPNL=-4.75, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,102558681,MVIS,STK,,0,0,,NASDAQ,USD,MVIS,NMS,137,21.87000085,2996.19,8.77729925,1793.7,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=102558681, symbol='MVIS', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, marketPrice=21.87000085, marketValue=2996.19, averageCost=8.77729925, unrealizedPNL=1793.7, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,396324227,NAKD,STK,,0,0,,NASDAQ,USD,NAKD,SCM,1224,1.29999995,1591.2,0.977,395.35,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=396324227, symbol='NAKD', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, marketPrice=1.29999995, marketValue=1591.2, averageCost=0.977, unrealizedPNL=395.35, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,351158744,SEEL,STK,,0,0,,NASDAQ,USD,SEEL,SCM,447,4.0999999,1832.7,2.685,632.5,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=351158744, symbol='SEEL', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, marketPrice=4.0999999, marketValue=1832.7, averageCost=2.685, unrealizedPNL=632.5, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,12268,SNE,STK,,0,0,,NYSE,USD,SNE,SNE,11,114.98000335,1264.78,108.9509091,66.32,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=12268, symbol='SNE', right='0', primaryExchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, marketPrice=114.98000335, marketValue=1264.78, averageCost=108.9509091, unrealizedPNL=66.32, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,436051169,SRGA,STK,,0,0,,NASDAQ,USD,SRGA,NMS,545,2.8900001,1575.05,2.265,340.63,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=436051169, symbol='SRGA', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, marketPrice=2.8900001, marketValue=1575.05, averageCost=2.265, unrealizedPNL=340.63, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 7,8,457094764,VCVCU,STK,,0,0,,NASDAQ,USD,VCVCU,SCM,68,13.63869955,927.43,17.5147059,-263.57,0.0,DU2738121
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=457094764, symbol='VCVCU', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, marketPrice=13.63869955, marketValue=927.43, averageCost=17.5147059, unrealizedPNL=-263.57, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 54,1,DU2738121
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,302999891,EVFM,STK,,0.0,,,NASDAQ,USD,EVFM,SCM,363,3.355
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=302999891, symbol='EVFM', exchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, avgCost=3.355)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,396324227,NAKD,STK,,0.0,,,NASDAQ,USD,NAKD,SCM,1224,0.977
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=396324227, symbol='NAKD', exchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, avgCost=0.977)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,436051169,SRGA,STK,,0.0,,,NASDAQ,USD,SRGA,NMS,545,2.265
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=436051169, symbol='SRGA', exchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, avgCost=2.265)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,457094764,VCVCU,STK,,0.0,,,NASDAQ,USD,VCVCU,SCM,68,17.5147059
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=457094764, symbol='VCVCU', exchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, avgCost=17.5147059)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,351158744,SEEL,STK,,0.0,,,NASDAQ,USD,SEEL,SCM,447,2.685
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=351158744, symbol='SEEL', exchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, avgCost=2.685)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,395179962,CLSK,STK,,0.0,,,NASDAQ,USD,CLSK,SCM,41,28.90439025
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=395179962, symbol='CLSK', exchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, avgCost=28.90439025)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,126993722,GWPH,STK,,0.0,,,NASDAQ,USD,GWPH,NMS,5,214.45
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=126993722, symbol='GWPH', exchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, avgCost=214.45)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,277296974,AREC,STK,,0.0,,,NASDAQ,USD,AREC,SCM,292,4.165
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=277296974, symbol='AREC', exchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, avgCost=4.165)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,12268,SNE,STK,,0.0,,,NYSE,USD,SNE,SNE,11,108.9509091
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=12268, symbol='SNE', exchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, avgCost=108.9509091)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 61,3,DU2738121,102558681,MVIS,STK,,0.0,,,NASDAQ,USD,MVIS,NMS,137,8.77729925
+
+=== 02/16/2021 11:57:24 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=102558681, symbol='MVIS', exchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, avgCost=8.77729925)
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 62,1
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 55,1,2502
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 76,1,2503,DU2738121,,0
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountCode,DU2738121,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountReady,true,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountType,INDIVIDUAL,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,BuyingPower,96790.46,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Cushion,0.623075,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemaining,-1,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+1,-1,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+2,-1,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+3,-1,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+4,-1,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-S,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue,15868.10,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue-S,15868.10,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Leverage-S,0.41,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadNextChange,0,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NLVAndMarginInReview,false,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-S,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationUncertainty,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity-S,38835.82,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin,7934.05,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin-S,7934.05,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA,31510.75,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA-S,31510.75,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-C,US Commodities,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-S,US Securities,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue,22967.72,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-S,22967.72,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-C,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-S,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TradingType-S,STKNOPT,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,WhatIfPMEnabled,true,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,USD,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,USD
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,BASE,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,BASE
+
+=== 02/16/2021 11:57:24 PM client ===
+
+<<< 74,1,2503
+
+=== 02/16/2021 11:57:24 PM ib ===
+
+Synchronization complete
+
+=== 02/16/2021 11:57:24 PM run ===
+
+Successfully connected!
+
+=== 02/16/2021 11:57:24 PM selector_events ===
+
+Using selector: SelectSelector
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2504,Stock(symbol='M', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2505,Stock(symbol='U', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2506,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2507,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2508,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2509,Stock(symbol='S', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2510,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2511,Stock(symbol='O', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2512,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2513,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2514,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2515,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2516,Stock(symbol='P', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2517,Stock(symbol='L', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2518,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2519,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2520,Stock(symbol='I', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2521,Stock(symbol='B', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:57:24 PM client ===
+
+>>> 9,8,2522,Stock(symbol='M', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+Connecting to 127.0.0.1:7497 with clientId 23...
+
+=== 02/16/2021 11:58:41 PM client ===
+
+Connected
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 152,20210216 23:58:39 Central Standard Time
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 71,2,23,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+Logged on to server version 152
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 9,1,2502
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 15,1,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 4,2,-1,2158,Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:58:41 PM client ===
+
+API connection ready
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 99,0
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 102
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 6,2,1,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 61,1
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 7,3,2502,0,,,,,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccountCode,DU2738121,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccountReady,true,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccountType,INDIVIDUAL,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedCash,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedCash,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedCash-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedCash-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedDividend-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AccruedDividend-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,AvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Billable,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Billable-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Billable-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,BuyingPower,96790.46,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,CashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,CashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Currency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Currency,USD,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Cushion,0.623075,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,DayTradesRemaining,-1,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,DayTradesRemainingT+1,-1,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,DayTradesRemainingT+2,-1,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,DayTradesRemainingT+3,-1,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,DayTradesRemainingT+4,-1,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,EquityWithLoanValue,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,EquityWithLoanValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,EquityWithLoanValue-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,ExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,ExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,ExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FullMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,GrossPositionValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,GrossPositionValue-S,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Guarantee,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Guarantee-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Guarantee-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,IndianStockHaircut,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,IndianStockHaircut-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,IndianStockHaircut-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,InitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,InitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,InitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,Leverage-S,0.41,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,LookAheadNextChange,0,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NLVAndMarginInReview,false,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetDividend,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidation,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidation-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidation-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,NetLiquidationUncertainty,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PASharesValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PASharesValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PASharesValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PhysicalCertificateValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationExcess,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationExcess-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationExcess-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationMargin,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationMargin-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,PostExpirationMargin-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RealCurrency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RealCurrency,USD,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RegTEquity,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RegTEquity-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RegTMargin,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,RegTMargin-S,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,SMA,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,SMA-S,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,SegmentTitle-C,US Commodities,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,SegmentTitle-S,US Securities,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TBillValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TBillValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalCashValue,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalCashValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalCashValue-S,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,TradingType-S,STKNOPT,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,WarrantValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,WarrantValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 6,2,WhatIfPMEnabled,true,,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,277296974,AREC,STK,,0,0,,NASDAQ,USD,AREC,SCM,292,6.73,1965.16,4.165,748.98,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=277296974, symbol='AREC', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, marketPrice=6.73, marketValue=1965.16, averageCost=4.165, unrealizedPNL=748.98, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,395179962,CLSK,STK,,0,0,,NASDAQ,USD,CLSK,SCM,41,29.3500004,1203.35,28.90439025,18.27,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=395179962, symbol='CLSK', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, marketPrice=29.3500004, marketValue=1203.35, averageCost=28.90439025, unrealizedPNL=18.27, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,302999891,EVFM,STK,,0,0,,NASDAQ,USD,EVFM,SCM,363,3.98,1444.74,3.355,226.88,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=302999891, symbol='EVFM', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, marketPrice=3.98, marketValue=1444.74, averageCost=3.355, unrealizedPNL=226.88, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,126993722,GWPH,STK,,0,0,,NASDAQ,USD,GWPH,NMS,5,213.5,1067.5,214.45,-4.75,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=126993722, symbol='GWPH', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, marketPrice=213.5, marketValue=1067.5, averageCost=214.45, unrealizedPNL=-4.75, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,102558681,MVIS,STK,,0,0,,NASDAQ,USD,MVIS,NMS,137,21.87000085,2996.19,8.77729925,1793.7,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=102558681, symbol='MVIS', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, marketPrice=21.87000085, marketValue=2996.19, averageCost=8.77729925, unrealizedPNL=1793.7, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,396324227,NAKD,STK,,0,0,,NASDAQ,USD,NAKD,SCM,1224,1.29999995,1591.2,0.977,395.35,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=396324227, symbol='NAKD', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, marketPrice=1.29999995, marketValue=1591.2, averageCost=0.977, unrealizedPNL=395.35, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,351158744,SEEL,STK,,0,0,,NASDAQ,USD,SEEL,SCM,447,4.0999999,1832.7,2.685,632.5,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=351158744, symbol='SEEL', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, marketPrice=4.0999999, marketValue=1832.7, averageCost=2.685, unrealizedPNL=632.5, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,12268,SNE,STK,,0,0,,NYSE,USD,SNE,SNE,11,114.98000335,1264.78,108.9509091,66.32,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=12268, symbol='SNE', right='0', primaryExchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, marketPrice=114.98000335, marketValue=1264.78, averageCost=108.9509091, unrealizedPNL=66.32, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,436051169,SRGA,STK,,0,0,,NASDAQ,USD,SRGA,NMS,545,2.8900001,1575.05,2.265,340.63,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=436051169, symbol='SRGA', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, marketPrice=2.8900001, marketValue=1575.05, averageCost=2.265, unrealizedPNL=340.63, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 7,8,457094764,VCVCU,STK,,0,0,,NASDAQ,USD,VCVCU,SCM,68,13.63869955,927.43,17.5147059,-263.57,0.0,DU2738121
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=457094764, symbol='VCVCU', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, marketPrice=13.63869955, marketValue=927.43, averageCost=17.5147059, unrealizedPNL=-263.57, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 54,1,DU2738121
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,302999891,EVFM,STK,,0.0,,,NASDAQ,USD,EVFM,SCM,363,3.355
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=302999891, symbol='EVFM', exchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, avgCost=3.355)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,396324227,NAKD,STK,,0.0,,,NASDAQ,USD,NAKD,SCM,1224,0.977
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=396324227, symbol='NAKD', exchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, avgCost=0.977)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,436051169,SRGA,STK,,0.0,,,NASDAQ,USD,SRGA,NMS,545,2.265
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=436051169, symbol='SRGA', exchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, avgCost=2.265)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,457094764,VCVCU,STK,,0.0,,,NASDAQ,USD,VCVCU,SCM,68,17.5147059
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=457094764, symbol='VCVCU', exchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, avgCost=17.5147059)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,351158744,SEEL,STK,,0.0,,,NASDAQ,USD,SEEL,SCM,447,2.685
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=351158744, symbol='SEEL', exchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, avgCost=2.685)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,395179962,CLSK,STK,,0.0,,,NASDAQ,USD,CLSK,SCM,41,28.90439025
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=395179962, symbol='CLSK', exchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, avgCost=28.90439025)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,126993722,GWPH,STK,,0.0,,,NASDAQ,USD,GWPH,NMS,5,214.45
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=126993722, symbol='GWPH', exchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, avgCost=214.45)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,277296974,AREC,STK,,0.0,,,NASDAQ,USD,AREC,SCM,292,4.165
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=277296974, symbol='AREC', exchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, avgCost=4.165)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,12268,SNE,STK,,0.0,,,NYSE,USD,SNE,SNE,11,108.9509091
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=12268, symbol='SNE', exchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, avgCost=108.9509091)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 61,3,DU2738121,102558681,MVIS,STK,,0.0,,,NASDAQ,USD,MVIS,NMS,137,8.77729925
+
+=== 02/16/2021 11:58:41 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=102558681, symbol='MVIS', exchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, avgCost=8.77729925)
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 62,1
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 55,1,2502
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 76,1,2503,DU2738121,,0
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountCode,DU2738121,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountReady,true,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountType,INDIVIDUAL,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,BuyingPower,96790.46,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Cushion,0.623075,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemaining,-1,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+1,-1,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+2,-1,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+3,-1,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+4,-1,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-S,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue,15868.10,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue-S,15868.10,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Leverage-S,0.41,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadNextChange,0,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NLVAndMarginInReview,false,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-S,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationUncertainty,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity-S,38835.82,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin,7934.05,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin-S,7934.05,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA,31510.75,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA-S,31510.75,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-C,US Commodities,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-S,US Securities,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue,22967.72,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-S,22967.72,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-C,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-S,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TradingType-S,STKNOPT,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,WhatIfPMEnabled,true,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,USD,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,USD
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,BASE,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,BASE
+
+=== 02/16/2021 11:58:41 PM client ===
+
+<<< 74,1,2503
+
+=== 02/16/2021 11:58:41 PM ib ===
+
+Synchronization complete
+
+=== 02/16/2021 11:58:41 PM run ===
+
+Successfully connected!
+
+=== 02/16/2021 11:58:41 PM selector_events ===
+
+Using selector: SelectSelector
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2504,Stock(symbol='M', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2505,Stock(symbol='U', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2506,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2507,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2508,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2509,Stock(symbol='S', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2510,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2511,Stock(symbol='O', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2512,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2513,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2514,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2515,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2516,Stock(symbol='P', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2517,Stock(symbol='L', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2518,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2519,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2520,Stock(symbol='I', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2521,Stock(symbol='B', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:41 PM client ===
+
+>>> 9,8,2522,Stock(symbol='M', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:58:56 PM ib ===
+
+Disconnecting from 127.0.0.1:7497, 1.43 kB sent in 26 messages, 17.0 kB received in 342 messages, session time 15.5 s.
+
+=== 02/16/2021 11:58:56 PM client ===
+
+Disconnecting
+
+=== 02/16/2021 11:58:56 PM run ===
+
+Successfully disconnected!
+
+=== 02/16/2021 11:59:02 PM client ===
+
+Connecting to 127.0.0.1:7497 with clientId 23...
+
+=== 02/16/2021 11:59:02 PM client ===
+
+Connected
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 152,20210216 23:59:00 Central Standard Time
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 71,2,23,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+Logged on to server version 152
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 9,1,2502
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usopt
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 15,1,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2104,Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:euhmds
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:fundfarm
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2106,HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 4,2,-1,2158,Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefil
+
+=== 02/16/2021 11:59:02 PM client ===
+
+API connection ready
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 99,0
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 102
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 6,2,1,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 61,1
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 7,3,2502,0,,,,,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccountCode,DU2738121,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccountOrGroup,DU2738121,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccountReady,true,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccountType,INDIVIDUAL,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedCash,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedCash,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedCash-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedCash-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedDividend-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AccruedDividend-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,AvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Billable,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Billable-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Billable-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,BuyingPower,96790.46,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,CashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,CashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,CorporateBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Currency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Currency,USD,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Cushion,0.623075,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,DayTradesRemaining,-1,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,DayTradesRemainingT+1,-1,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,DayTradesRemainingT+2,-1,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,DayTradesRemainingT+3,-1,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,DayTradesRemainingT+4,-1,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,EquityWithLoanValue,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,EquityWithLoanValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,EquityWithLoanValue-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,ExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,ExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,ExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,ExchangeRate,1.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FullMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FutureOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FuturesPNL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,FxCashBalance,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,GrossPositionValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,GrossPositionValue-S,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Guarantee,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Guarantee-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Guarantee-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,IndianStockHaircut,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,IndianStockHaircut-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,IndianStockHaircut-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,InitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,InitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,InitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,IssuerOptionValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,Leverage-S,0.41,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadAvailableFunds-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadExcessLiquidity-S,24197.62,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadInitMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadMaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,LookAheadNextChange,0,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MaintMarginReq,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MaintMarginReq-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MaintMarginReq-S,14638.21,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MoneyMarketFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,MutualFundValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NLVAndMarginInReview,false,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetDividend,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetDividend,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidation,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidation-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidation-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidationByCurrency,38835.8217,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,NetLiquidationUncertainty,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,OptionMarketValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PASharesValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PASharesValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PASharesValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PhysicalCertificateValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PhysicalCertificateValue-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationExcess,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationExcess-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationExcess-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationMargin,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationMargin-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,PostExpirationMargin-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RealCurrency,BASE,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RealCurrency,USD,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RealizedPnL,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RegTEquity,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RegTEquity-S,38835.82,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RegTMargin,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,RegTMargin-S,7934.05,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,SMA,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,SMA-S,31510.75,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,SegmentTitle-C,US Commodities,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,SegmentTitle-S,US Securities,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,StockMarketValue,15868.10,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TBillValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TBillValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TBondValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TBondValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalCashBalance,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalCashValue,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalCashValue-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalCashValue-S,22967.72,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-C,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TotalDebitCardPendingCharges-S,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,TradingType-S,STKNOPT,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,UnrealizedPnL,3954.31,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,WarrantValue,0.00,BASE,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,WarrantValue,0.00,USD,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 6,2,WhatIfPMEnabled,true,,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,277296974,AREC,STK,,0,0,,NASDAQ,USD,AREC,SCM,292,6.73,1965.16,4.165,748.98,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=277296974, symbol='AREC', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, marketPrice=6.73, marketValue=1965.16, averageCost=4.165, unrealizedPNL=748.98, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,395179962,CLSK,STK,,0,0,,NASDAQ,USD,CLSK,SCM,41,29.3500004,1203.35,28.90439025,18.27,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=395179962, symbol='CLSK', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, marketPrice=29.3500004, marketValue=1203.35, averageCost=28.90439025, unrealizedPNL=18.27, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,302999891,EVFM,STK,,0,0,,NASDAQ,USD,EVFM,SCM,363,3.98,1444.74,3.355,226.88,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=302999891, symbol='EVFM', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, marketPrice=3.98, marketValue=1444.74, averageCost=3.355, unrealizedPNL=226.88, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,126993722,GWPH,STK,,0,0,,NASDAQ,USD,GWPH,NMS,5,213.5,1067.5,214.45,-4.75,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=126993722, symbol='GWPH', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, marketPrice=213.5, marketValue=1067.5, averageCost=214.45, unrealizedPNL=-4.75, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,102558681,MVIS,STK,,0,0,,NASDAQ,USD,MVIS,NMS,137,21.87000085,2996.19,8.77729925,1793.7,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=102558681, symbol='MVIS', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, marketPrice=21.87000085, marketValue=2996.19, averageCost=8.77729925, unrealizedPNL=1793.7, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,396324227,NAKD,STK,,0,0,,NASDAQ,USD,NAKD,SCM,1224,1.29999995,1591.2,0.977,395.35,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=396324227, symbol='NAKD', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, marketPrice=1.29999995, marketValue=1591.2, averageCost=0.977, unrealizedPNL=395.35, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,351158744,SEEL,STK,,0,0,,NASDAQ,USD,SEEL,SCM,447,4.0999999,1832.7,2.685,632.5,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=351158744, symbol='SEEL', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, marketPrice=4.0999999, marketValue=1832.7, averageCost=2.685, unrealizedPNL=632.5, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,12268,SNE,STK,,0,0,,NYSE,USD,SNE,SNE,11,114.98000335,1264.78,108.9509091,66.32,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=12268, symbol='SNE', right='0', primaryExchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, marketPrice=114.98000335, marketValue=1264.78, averageCost=108.9509091, unrealizedPNL=66.32, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,436051169,SRGA,STK,,0,0,,NASDAQ,USD,SRGA,NMS,545,2.8900001,1575.05,2.265,340.63,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=436051169, symbol='SRGA', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, marketPrice=2.8900001, marketValue=1575.05, averageCost=2.265, unrealizedPNL=340.63, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 7,8,457094764,VCVCU,STK,,0,0,,NASDAQ,USD,VCVCU,SCM,68,13.63869955,927.43,17.5147059,-263.57,0.0,DU2738121
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+updatePortfolio: PortfolioItem(contract=Stock(conId=457094764, symbol='VCVCU', right='0', primaryExchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, marketPrice=13.63869955, marketValue=927.43, averageCost=17.5147059, unrealizedPNL=-263.57, realizedPNL=0.0, account='DU2738121')
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 8,1,23:56
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 54,1,DU2738121
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,302999891,EVFM,STK,,0.0,,,NASDAQ,USD,EVFM,SCM,363,3.355
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=302999891, symbol='EVFM', exchange='NASDAQ', currency='USD', localSymbol='EVFM', tradingClass='SCM'), position=363.0, avgCost=3.355)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,396324227,NAKD,STK,,0.0,,,NASDAQ,USD,NAKD,SCM,1224,0.977
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=396324227, symbol='NAKD', exchange='NASDAQ', currency='USD', localSymbol='NAKD', tradingClass='SCM'), position=1224.0, avgCost=0.977)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,436051169,SRGA,STK,,0.0,,,NASDAQ,USD,SRGA,NMS,545,2.265
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=436051169, symbol='SRGA', exchange='NASDAQ', currency='USD', localSymbol='SRGA', tradingClass='NMS'), position=545.0, avgCost=2.265)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,457094764,VCVCU,STK,,0.0,,,NASDAQ,USD,VCVCU,SCM,68,17.5147059
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=457094764, symbol='VCVCU', exchange='NASDAQ', currency='USD', localSymbol='VCVCU', tradingClass='SCM'), position=68.0, avgCost=17.5147059)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,351158744,SEEL,STK,,0.0,,,NASDAQ,USD,SEEL,SCM,447,2.685
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=351158744, symbol='SEEL', exchange='NASDAQ', currency='USD', localSymbol='SEEL', tradingClass='SCM'), position=447.0, avgCost=2.685)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,395179962,CLSK,STK,,0.0,,,NASDAQ,USD,CLSK,SCM,41,28.90439025
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=395179962, symbol='CLSK', exchange='NASDAQ', currency='USD', localSymbol='CLSK', tradingClass='SCM'), position=41.0, avgCost=28.90439025)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,126993722,GWPH,STK,,0.0,,,NASDAQ,USD,GWPH,NMS,5,214.45
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=126993722, symbol='GWPH', exchange='NASDAQ', currency='USD', localSymbol='GWPH', tradingClass='NMS'), position=5.0, avgCost=214.45)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,277296974,AREC,STK,,0.0,,,NASDAQ,USD,AREC,SCM,292,4.165
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=277296974, symbol='AREC', exchange='NASDAQ', currency='USD', localSymbol='AREC', tradingClass='SCM'), position=292.0, avgCost=4.165)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,12268,SNE,STK,,0.0,,,NYSE,USD,SNE,SNE,11,108.9509091
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=12268, symbol='SNE', exchange='NYSE', currency='USD', localSymbol='SNE', tradingClass='SNE'), position=11.0, avgCost=108.9509091)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 61,3,DU2738121,102558681,MVIS,STK,,0.0,,,NASDAQ,USD,MVIS,NMS,137,8.77729925
+
+=== 02/16/2021 11:59:02 PM wrapper ===
+
+position: Position(account='DU2738121', contract=Stock(conId=102558681, symbol='MVIS', exchange='NASDAQ', currency='USD', localSymbol='MVIS', tradingClass='NMS'), position=137.0, avgCost=8.77729925)
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 62,1
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 55,1,2502
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 76,1,2503,DU2738121,,0
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountCode,DU2738121,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountReady,true,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountType,INDIVIDUAL,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedDividend-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Billable-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,BuyingPower,96790.46,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Cushion,0.623075,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemaining,-1,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+1,-1,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+2,-1,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+3,-1,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,DayTradesRemainingT+4,-1,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,EquityWithLoanValue-S,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FullMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue,15868.10,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,GrossPositionValue-S,15868.10,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Guarantee-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,IndianStockHaircut-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,InitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Leverage-S,0.41,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadAvailableFunds-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadExcessLiquidity-S,24197.62,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadInitMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadMaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,LookAheadNextChange,0,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MaintMarginReq-S,14638.21,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NLVAndMarginInReview,false,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidation-S,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationUncertainty,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PASharesValue-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PhysicalCertificateValue-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationExcess-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,PostExpirationMargin-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTEquity-S,38835.82,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin,7934.05,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RegTMargin-S,7934.05,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA,31510.75,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,SMA-S,31510.75,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-C,US Commodities,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,SegmentTitle-S,US Securities,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue,22967.72,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashValue-S,22967.72,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-C,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalDebitCardPendingCharges-S,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TradingType-S,STKNOPT,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,WhatIfPMEnabled,true,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,USD,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,USD
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,Currency,BASE,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,CashBalance,22967.72,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TotalCashBalance,22967.72,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccruedCash,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,StockMarketValue,15868.10,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,OptionMarketValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FutureOptionValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FuturesPNL,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetLiquidationByCurrency,38835.8217,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,UnrealizedPnL,3954.31,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealizedPnL,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,ExchangeRate,1.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FundValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,NetDividend,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MutualFundValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,MoneyMarketFundValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,CorporateBondValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBondValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,TBillValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,WarrantValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,FxCashBalance,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,AccountOrGroup,DU2738121,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,RealCurrency,USD,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 73,1,2503,DU2738121,,IssuerOptionValue,0.00,BASE
+
+=== 02/16/2021 11:59:02 PM client ===
+
+<<< 74,1,2503
+
+=== 02/16/2021 11:59:02 PM ib ===
+
+Synchronization complete
+
+=== 02/16/2021 11:59:02 PM run ===
+
+Successfully connected!
+
+=== 02/16/2021 11:59:02 PM selector_events ===
+
+Using selector: SelectSelector
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2504,Stock(symbol='M', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2505,Stock(symbol='U', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2506,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2507,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2508,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2509,Stock(symbol='S', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2510,Stock(symbol='C', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2511,Stock(symbol='O', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2512,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2513,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2514,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2515,Stock(symbol='A', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2516,Stock(symbol='P', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2517,Stock(symbol='L', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2518,Stock(symbol=',', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2519,Stock(symbol=' ', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2520,Stock(symbol='I', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2521,Stock(symbol='B', exchange='SMART', currency='USD'),0,,
+
+=== 02/16/2021 11:59:02 PM client ===
+
+>>> 9,8,2522,Stock(symbol='M', exchange='SMART', currency='USD'),0,,

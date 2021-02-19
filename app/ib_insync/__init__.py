@@ -35,7 +35,7 @@ from .client import Client
 from .wrapper import RequestError, Wrapper
 from .flexreport import FlexReport, FlexError
 from .ibcontroller import IBC, IBController, Watchdog
-import ib_insync.util as util
+import app.ib_insync.util as util
 
 __all__ = ['util', 'Event']
 for _m in (
