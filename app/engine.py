@@ -130,11 +130,10 @@ class Engine:
                 print("\n=================== Cycle end! =====================\n")
 
             try:
-                with open("settings/app_status.txt", "r") as f:
-                    self.app_status = f.readlines()[0]
+                with open("settings/app_status.txt", "r") as fb:
+                    self.app_status = fb.readlines()[0]
                     f.close()
             except Exception as e:
-                print(e)
                 self.app_status = "OFF"
 
     def check_exit_trigger(self):
@@ -269,11 +268,11 @@ class Engine:
             df["sd_px"] = df["close"].rolling(int(float(self.processed_params[symbol]["sd_lag"]))).std()
             df["percent_change_mean"] = df["percent_change"].rolling(
                 int(float(self.processed_params[symbol]["sd_lag"]))).mean()
-            df["percent_change_norm_ppf"] = norm.ppf(df["percent_change"], df["sd_px"], df["percent_change_mean"])
-            df["percent_change_norm_cdf"] = norm.cdf(float(self.processed_params[symbol]["norm_threshold"]),
-                                                     df["sd_px"], df["percent_change_mean"])
-            df["percent_change_norm_ppf"] = df["percent_change_norm_ppf"].fillna(method="ffill")
-            df["percent_change_norm_cdf"] = df["percent_change_norm_cdf"].fillna(method="ffill")
+            df["percent_change_norm_ppf"] = norm.ppf(df["percent_change"], df["percent_change_mean"], df["sd_percent"])
+            df["percent_change_norm_cdf"] = norm.cdf(float(self.processed_params[symbol]["norm_threshold"]), df["percent_change_mean"],
+                                                     df["sd_percent"])
+            # df["percent_change_norm_ppf"] = df["percent_change_norm_ppf"].fillna(method="ffill")
+            # df["percent_change_norm_cdf"] = df["percent_change_norm_cdf"].fillna(method="ffill")
 
             df["current_max"] = df["high"].rolling(
                 int(float(self.processed_params[symbol]["max_current_high_prd"]))).max()
@@ -291,6 +290,7 @@ class Engine:
             df["long_entry_px"] = round(df["current_max"], 2)
             df["short_entry_px"] = round(df["current_min"], 2)
             print(f"{symbol} - current bar statistics:\n{dict(df.iloc[-1])}\n")
+            print(df["percent_change_norm_ppf"].tolist())
 
             self.dfs[symbol] = df
 
@@ -308,6 +308,7 @@ class Engine:
                             self.processed_params[symbol]["norm_threshold"])) and \
                         (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
 
+            print("\n")
             print(f"{symbol} - Current max:{df.iloc[-1]['current_max']}, Past period max high:{df.iloc[-1]['past_period_max_high']}")
             print(f"{symbol} - Percent change norm ppf:{df.iloc[-1]['percent_change_norm_ppf']}, Norm threshold:{float(self.processed_params[symbol]['norm_threshold'])}")
             print(f"{symbol} - Current open:{df.iloc[-1]['open']}, Long entry px:{df.iloc[-1]['long_entry_px']}")
