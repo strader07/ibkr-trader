@@ -1,15 +1,15 @@
-
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QTextEdit, QPushButton, QLineEdit, QPlainTextEdit, \
-    QComboBox, QFileDialog, QTableWidget, QTableWidgetItem, QAbstractItemView
+    QComboBox, QFileDialog, QTableWidget, QTableWidgetItem, QAbstractItemView, QCalendarWidget
 from PyQt5.QtCore import QThread, pyqtSignal, pyqtSlot
 from PyQt5.QtGui import QFont, QPainter, QPen, QBrush, QTextCursor
-from PyQt5.QtCore import Qt, QObject
+from PyQt5.QtCore import Qt, QObject, QDate
 
 import time
 import ast
 import json
 import logging
 from datetime import datetime
+import pandas as pd
 
 INIT_PRODUCTS = "ESH1, ZNH1, AAPL"
 INIT_TIMEFRAME = "15 mins"
@@ -35,6 +35,17 @@ INIT_PROD_PARAMS = {
     "ZNH1": "tick = (1/64)",
     "AAPL": "tick = 0.01, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60"
 }
+
+
+def fetch_trade_summary(_date=""):
+    if _date == "":
+        _date = str(datetime.now().date())
+    try:
+        df = pd.read_csv(f"trades/trade-summary-{_date}.csv")
+        df = df.fillna("")
+    except:
+        df = pd.DataFrame()
+    return df
 
 
 class MessageBox(QWidget):
@@ -153,6 +164,38 @@ class QTextEditLogger(logging.Handler, QObject):
         self.appendPlainText.emit(msg)
 
 
+class UpdateTradeSummary(QThread):
+    """
+    Updates trade summary table.
+    """
+    countChanged = pyqtSignal(str)
+
+    def __init__(self, selected_date = "", parent=None):
+        QThread.__init__(self, parent)
+        self.conn_state = False
+        self.selected_date = selected_date
+
+    def run(self):
+        while True:
+            update_msg = dict()
+            try:
+                pdf = fetch_trade_summary(self.selected_date)
+                pdf = pdf.fillna("")
+            except Exception as err:
+                print(err)
+                pdf = pd.DataFrame()
+            if pdf.shape[0] > 0:
+                trades = pdf.to_dict("records")
+            else:
+                trades = []
+            update_msg["trade_summary"] = trades
+            self.countChanged.emit(str(update_msg))
+            time.sleep(5)
+
+    def stop(self):
+        self.terminate()
+
+
 class MainThread(QThread):
     """
     Runs a counter thread.
@@ -205,6 +248,8 @@ class MainWindow(QWidget):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setWindowTitle("Interactive Brokers Trader")
         self.start_flag = 1
+        self.selected_date = str(datetime.now().date())
+        self.update_ts = UpdateTradeSummary(self.selected_date)
 
         try:
             with open("settings/generalParams.json", "r") as f:
@@ -275,21 +320,13 @@ class MainWindow(QWidget):
         self.productSetParamTxt.setGeometry(80, 150, 400, 36)
         self.productSetParamTxt.setText("- Products Specific Setup -")
 
-        # self.productSetParamEdit = QTextEdit(self)
-        # self.productSetParamEdit.setStyleSheet(
-        #     "background-color: transparent; border-radius: 1px; color:white; font-size:14px;")
-        # self.productSetParamEdit.setGeometry(80, 205, 590, 100)
-        # self.productSetParamEdit.moveCursor(QTextCursor.End)
-        # self.productSetParamEdit.ensureCursorVisible()
-        # self.productSetParamEdit.insertPlainText(self.prod_params)
-        # self.productSetParamEdit.setReadOnly(True)
-
         self.tableWidget = QTableWidget(self)
         self.tableWidget.setGeometry(82, 210, 590, 100)
         self.tableWidget.resizeColumnsToContents()
         self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.tableWidget.setStyleSheet(
-            "selection-background-color: transparent; background-color: transparent; border-radius: 1px; color:white; font-size:14px;")
+            "selection-background-color: transparent; background-color: transparent; border-radius: 1px;"
+            "color:white; font-size:14px;")
         self.tableWidget.horizontalHeader().hide()
         self.tableWidget.verticalHeader().hide()
         products = [prod.strip(",. ") for prod in self.params["products"].split(",")]
@@ -303,7 +340,7 @@ class MainWindow(QWidget):
                 self.tableWidget.setItem(i, 1, QTableWidgetItem(self.prod_params[products[i]]))
             else:
                 self.tableWidget.setItem(i, 1, QTableWidgetItem(""))
-        self.tableWidget.doubleClicked.connect(self.on_click)
+        self.tableWidget.doubleClicked.connect(self.on_click_table)
 
         self.editBtn = QPushButton(self)
         self.editBtn.setGeometry(495, 154, 80, 32)
@@ -315,6 +352,100 @@ class MainWindow(QWidget):
         self.saveBtn.setText("Save")
         self.saveBtn.setStyleSheet("background-color: #db1222; border-radius: 12px; color:white; font-size:18px;")
         self.saveBtn.clicked.connect(self.onSaveProductsParam)
+
+        self.tradeSummaryHeader = QLabel(self)
+        self.tradeSummaryHeader.setStyleSheet(
+            "background-color: transparent; border-radius: 15px; color:white; font-size:18px;")
+        self.tradeSummaryHeader.setGeometry(85, 425, 200, 36)
+        self.tradeSummaryHeader.setText("- Trades -")
+        self.date_picker = QCalendarWidget(self)
+        self.date_picker.setGridVisible(True)
+        self.date_picker.setGeometry(180, 425, 150, 40)
+        self.date_picker.clicked[QDate].connect(self.update_calender)
+        self.date_picker.setStyleSheet("background-color: #151515; color: white;")
+        try:
+            pdf = fetch_trade_summary(self.selected_date)
+        except Exception as err:
+            print(err)
+            pdf = pd.DataFrame()
+
+        self.pnl_label1 = QLabel(self)
+        self.pnl_label1.setStyleSheet(
+            "background-color: transparent; color:white; font-size:14px;")
+        self.pnl_label1.setGeometry(390, 430, 80, 30)
+        self.pnl_label1.setText("Daily PNL: ")
+        self.pnl_edit1 = QLineEdit(self)
+        win_stylesheet = "background-color: transparent; border:none; color:lightgreen; font-size:16px;"
+        loss_stylesheet = "background-color: transparent; border:none; color:red; font-size:16px;"
+        self.pnl_edit1.setGeometry(460, 430, 100, 30)
+        try:
+            pnl1 = round(pdf["RealizedPNL"].sum(), 2)
+            if pnl1 > 0:
+                self.pnl_edit1.setStyleSheet(win_stylesheet)
+            else:
+                self.pnl_edit1.setStyleSheet(loss_stylesheet)
+            self.pnl_edit1.setText(str(pnl1))
+        except:
+            self.pnl_edit1.setText("")
+
+        self.pnl_label2 = QLabel(self)
+        self.pnl_label2.setStyleSheet(
+            "background-color: transparent; color:white; font-size:14px;")
+        self.pnl_label2.setGeometry(530, 430, 100, 30)
+        self.pnl_label2.setText("Unrealized PNL: ")
+        self.pnl_edit2 = QLineEdit(self)
+        self.pnl_edit2.setStyleSheet("background-color: transparent; border:none; color:red; font-size:16px;")
+        self.pnl_edit2.setGeometry(630, 430, 100, 30)
+        try:
+            pnl2 = round(pdf["UnrealizedPNL"].sum(), 2)
+            if pnl2 > 0:
+                self.pnl_edit2.setStyleSheet(win_stylesheet)
+            else:
+                self.pnl_edit2.setStyleSheet(loss_stylesheet)
+            self.pnl_edit2.setText(str(pnl2))
+        except:
+            self.pnl_edit2.setText("")
+
+        self.tradeSummaryTable = QTableWidget(self)
+        self.tradeSummaryTable.setGeometry(82, 480, 610, 440)
+        self.tradeSummaryTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tradeSummaryTable.setStyleSheet(
+            "selection-background-color: transparent; background-color: transparent; "
+            "border-radius: 1px; color:white; font-size:12px;"
+        )
+        self.tradeSummaryTable.setRowCount(pdf.shape[0])
+        self.tradeSummaryTable.setColumnCount(11)
+        self.tradeSummaryTable.setShowGrid(False)
+        self.tradeSummaryTable.resizeColumnsToContents()
+        self.tradeSummaryTable.verticalHeader().hide()
+        self.tradeSummaryTable.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.tradeSummaryTable.horizontalHeader().setDefaultAlignment(Qt.AlignLeft)
+        self.tradeSummaryTable.horizontalHeader().setStyleSheet(
+            "::section{Background-color:#111111; font-size:14px; border: 0px; border-radius: 1px;}"
+        )
+        cols = ["Product", "Side", "Size", "EnTime", "EnPx", "ExTime", "ExPx", "ExHow", "RePNL", "UnrePNL"]
+        pdf_cols = ["Product", "Side", "Size", "EntryTime", "EntryPrice", "ExitTime", "ExitPrice",
+                    "ExitChannel", "RealizedPNL", "UnrealizedPNL"]
+        self.tradeSummaryTable.setHorizontalHeaderLabels(["No"] + cols)
+        self.tradeSummaryTable.setColumnWidth(0, 5)
+        self.tradeSummaryTable.setColumnWidth(1, 62)
+        self.tradeSummaryTable.setColumnWidth(2, 30)
+        self.tradeSummaryTable.setColumnWidth(3, 50)
+        self.tradeSummaryTable.setColumnWidth(4, 60)
+        self.tradeSummaryTable.setColumnWidth(5, 60)
+        self.tradeSummaryTable.setColumnWidth(6, 60)
+        self.tradeSummaryTable.setColumnWidth(7, 60)
+        self.tradeSummaryTable.setColumnWidth(8, 60)
+        self.tradeSummaryTable.setColumnWidth(9, 60)
+        self.tradeSummaryTable.setColumnWidth(10, 60)
+        for i in range(pdf.shape[0]):
+            self.tradeSummaryTable.setItem(i, 0, QTableWidgetItem(str(i + 1)))
+            for j in range(len(pdf_cols)):
+                try:
+                    self.tradeSummaryTable.setItem(i, j + 1, QTableWidgetItem(str(pdf.iloc[i][pdf_cols[j]])))
+                except Exception as err:
+                    print(err)
+                    self.tradeSummaryTable.setItem(i, 1, QTableWidgetItem(""))
 
         self.localhost = QLineEdit(self)
         self.localhost.setStyleSheet("background-color: transparent; border-radius: 15px; color:white; font-size:20px;")
@@ -341,8 +472,23 @@ class MainWindow(QWidget):
                 '\n=== %(asctime)s %(module)s ===\n\n%(message)s', datefmt='%m/%d/%Y %I:%M:%S %p'))
         logging.getLogger().addHandler(fh)
 
+    def update_calender(self, date):
+        self.selected_date = str(date.toPyDate())
+        self.update_ts.selected_date = str(date.toPyDate())
+        try:
+            df = pd.read_csv(f"trades/trade-summary-{date.toPyDate()}.csv")
+            df = df.fillna("")
+        except:
+            df = pd.DataFrame()
+        if df.shape[0] > 1:
+            trades = df.to_dict("records")
+        else:
+            trades = []
+        msg = {"trade_summary": trades}
+        self.on_update_trade_summary(str(msg))
+
     @pyqtSlot()
-    def on_click(self):
+    def on_click_table(self):
         for currentQTableWidgetItem in self.tableWidget.selectedItems():
             print(currentQTableWidgetItem.row(), currentQTableWidgetItem.column(), currentQTableWidgetItem.text())
 
@@ -379,8 +525,9 @@ class MainWindow(QWidget):
                                                   params=self.params)
                     self.main_thread.countChanged.connect(self.onProcess)
                     self.main_thread.start()
-                    # self.start_flag = 0
-                    # self.startBtn.setText("Stop")
+
+                    self.update_ts.countChanged.connect(self.on_update_trade_summary)
+                    self.update_ts.start()
                 except Exception as e:
                     self.msg = MessageBox(e)
                     self.msg.show()
@@ -398,6 +545,7 @@ class MainWindow(QWidget):
             self.startBtn.setText("Start")
             self.start_flag = 1
             self.main_thread.stop()
+            self.update_ts.stop()
 
     def onClose(self):
         global app
@@ -427,6 +575,46 @@ class MainWindow(QWidget):
             self.startBtn.setText("Stop")
 
         # self.listwidget.addItem(value)
+
+    def on_update_trade_summary(self, value):
+        msg = ast.literal_eval(value)
+        trade_summaries = msg["trade_summary"]
+        pdf_cols = ["Product", "Side", "Size", "EntryTime", "EntryPrice", "ExitTime", "ExitPrice",
+                    "ExitChannel", "RealizedPNL", "UnrealizedPNL"]
+        # if len(trade_summaries) < 1:
+        #     return
+
+        win_stylesheet = "background-color: transparent; border:none; color:lightgreen; font-size:16px;"
+        loss_stylesheet = "background-color: transparent; border:none; color:red; font-size:16px;"
+        try:
+            pnl1 = round(sum([item["RealizedPNL"] for item in trade_summaries]), 2)
+            if pnl1 > 0:
+                self.pnl_edit1.setStyleSheet(win_stylesheet)
+            else:
+                self.pnl_edit1.setStyleSheet(loss_stylesheet)
+            self.pnl_edit1.setText(str(pnl1))
+        except:
+            self.pnl_edit1.setText("")
+
+        try:
+            pnl2 = round(sum([item["UnrealizedPNL"] for item in trade_summaries]), 2)
+            if pnl2 > 0:
+                self.pnl_edit2.setStyleSheet(win_stylesheet)
+            else:
+                self.pnl_edit2.setStyleSheet(loss_stylesheet)
+            self.pnl_edit2.setText(str(pnl2))
+        except:
+            self.pnl_edit2.setText("")
+
+        self.tradeSummaryTable.setRowCount(len(trade_summaries))
+        for trade_summary, i in zip(trade_summaries, range(len(trade_summaries))):
+            self.tradeSummaryTable.setItem(i, 0, QTableWidgetItem(str(i + 1)))
+            for j in range(len(pdf_cols)):
+                try:
+                    self.tradeSummaryTable.setItem(i, j + 1, QTableWidgetItem(str(trade_summary[pdf_cols[j]])))
+                except Exception as err:
+                    print(err)
+                    self.tradeSummaryTable.setItem(i, 1, QTableWidgetItem(""))
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -509,12 +697,15 @@ class SettingsWindow(QWidget):
         self.timeframeLabel.setText("Time Frame:")
         self.timeframeLabel.setStyleSheet("color:white; font-size:16px;border:none;")
         self.timeframe_combo = QComboBox(self)
-        self.time_frame_list = ['30 secs', '1 min', '2 mins', '3 mins', '5 mins', '10 mins', '15 mins', '20 mins', '30 mins', '1 hour', '2 hours', '3 hours', '4 hours', '8 hours', '1 day', '1 week', '1 month']
+        self.time_frame_list = ['30 secs', '1 min', '2 mins', '3 mins', '5 mins', '10 mins', '15 mins', '20 mins',
+                                '30 mins', '1 hour', '2 hours', '3 hours', '4 hours', '8 hours', '1 day', '1 week',
+                                '1 month']
         for item1 in self.time_frame_list:
             self.timeframe_combo.addItem(item1)
         idx = self.time_frame_list.index(self.params["timeframe"])
         self.timeframe_combo.setCurrentIndex(idx)
-        self.timeframe_combo.setStyleSheet("background-color:#24202a;color:white;font-size:16px;border:none;padding-left:5px;")
+        self.timeframe_combo.setStyleSheet(
+            "background-color:#24202a;color:white;font-size:16px;border:none;padding-left:5px;")
         self.timeframe_combo.setGeometry(250, 210, 150, 40)
         # self.timeframe_combo.setReadOnly(True)
 

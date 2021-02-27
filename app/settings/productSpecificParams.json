@@ -1,1 +1,1 @@
-{"MU": "tick = 0.25, percent_entry = 0.1, timeframe = 5", "CSCO": "tick = (1/64)", "AAPL": "tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, timeframe = 60", "IBM": ""}
+{"MU": "tick = 0.25, percent_entry = 0.1, timeframe = 5", "CSCO": "tick = (1/64)", "AAPL": "tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, timeframe = 15", "IBM": ""}

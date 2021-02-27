@@ -25,6 +25,7 @@ sl_price = 85.4
 contract = bracket_entry["limit_entry"].contract
 tp_order = bracket_entry["take_profit"].order
 sl_order = bracket_entry["stop_loss"].order
+
 tp_order.lmtPrice = tp_price
 tp_order.transmit = True
 sl_order.auxPrice = sl_price

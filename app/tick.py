@@ -22,3 +22,5 @@ class Tick(object):
         self.entry_filled = False
         self.exit_filled = False
         self.max_hold_queue = []
+
+        self.exit_channel = None
