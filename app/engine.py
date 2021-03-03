@@ -1,5 +1,3 @@
-
-import pickle
 import pandas as pd
 import numpy as np
 from scipy.stats import norm
@@ -16,13 +14,6 @@ from tick import Tick
 
 ib = IB()
 ib.connect("127.0.0.1", 7497, clientId=23)
-global tickers
-try:
-    with open("trades/trades.pkl", "rb") as f:
-        tickers = pickle.load(f)
-except Exception as er:
-    print(er)
-    tickers = SortedDict()
 
 
 def get_prod_params(prod_params, params):
@@ -205,7 +196,8 @@ class Engine:
                     if _ticker.direction == "LONG":
                         trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price)
                     else:
-                        trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price) * (-1)
+                        trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price) * (
+                            -1)
                     trade_summary["UnrealizedPNL"] = ""
                 else:
                     current_price = get_market_price(_ticker.symbol)
@@ -454,7 +446,7 @@ class Engine:
             df = self.dfs[symbol]
             current_bar = str(df.iloc[-1]["date"]) + "_" + str(self.processed_params[symbol]["timeframe"])
             if symbol in self.product_live_states.keys() and current_bar == self.product_live_states[symbol][
-                    "last_bar"]:
+                "last_bar"]:
                 print(f"{symbol} - current bar already seen - {current_bar}\n")
                 continue
 
@@ -480,7 +472,6 @@ class Engine:
             print(f"{symbol} - Long condition: {long_cond}\n")
             if long_cond:
                 product_state["long_cond"] = True
-                # self.enter_trades(symbol, "LONG", df.iloc[-1]['long_entry_px'])
 
             short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"]) and \
                          (df.iloc[-1]["percent_change_norm_cdf"] >= float(
@@ -497,7 +488,6 @@ class Engine:
             print(f"{symbol} - short condition: {short_cond}")
             if short_cond:
                 product_state["short_cond"] = True
-                # self.enter_trades(symbol, "SHORT", df.iloc[-1]["short_entry_px"])
 
             if long_cond or short_cond:
                 product_state["last_price"] = get_market_price(symbol)
@@ -601,7 +591,8 @@ class Engine:
         print(self.tickers[key].bracket_entry, "\n")
 
 
-th = Thread(target=main)
-th.start()
-engine = Engine()
-engine.run_cycle()
+if __name__ == "__main__":
+    th = Thread(target=main)
+    th.start()
+    engine = Engine()
+    engine.run_cycle()
