@@ -1,4 +1,4 @@
-# import json
+
 import pickle
 import pandas as pd
 import numpy as np
@@ -6,15 +6,13 @@ from scipy.stats import norm
 from sortedcontainers import SortedDict
 from datetime import datetime
 from threading import Thread
-# import math
+import re
 # import logging
 
 from ib_insync import *
 from config import *
 from gui import main
 from tick import Tick
-
-# import clib
 
 ib = IB()
 ib.connect("127.0.0.1", 7497, clientId=23)
@@ -108,7 +106,20 @@ def is_crossed(last, entry, current):
 
 
 def get_market_price(symbol):
-    contracts = [Stock(symbol, "SMART", 'USD')]
+    m = re.findall(r"\d+\s*$", symbol)
+    if m:
+        _type = "future"
+        _month = str(int(m[0]) + 2020) + MONTH_DICT[symbol.replace(m[0], "")[-1]]
+        _symbol = symbol.replace(m[0], "")[:-1]
+    else:
+        _type = "stock"
+        _month = ""
+        _symbol = symbol
+
+    if _type == "future":
+        contracts = [Future(_symbol, _month, "GLOBEX")]
+    else:
+        contracts = [Stock(_symbol, "SMART", 'USD')]
     ib.qualifyContracts(*contracts)
     # ib.reqMarketDataType(4)
     ib.reqMktData(contracts[0], '', False, False)
@@ -297,6 +308,9 @@ class Engine:
 
                 # closing the position at market
                 if _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
+                    if self.is_net_flat(symbol):
+                        print(f"{symbol} - is currently in a net flat! Skip closing")
+                        continue
                     side = "SELL" if _ticker.direction == "LONG" else "BUY"
                     _order = MarketOrder(side, _ticker.quantity)
                     _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
@@ -347,20 +361,41 @@ class Engine:
         for key in del_keys:
             del self.tickers[key]
 
+    def is_net_flat(self, symbol):
+        keys = [key for key in self.tickers if self.tickers[key].entry_filled]
+        keys = [key for key in keys if symbol in key]
+
+        longs = [key for key in keys if "LONG" in key]
+        shorts = [key for key in keys if "SHORT" in key]
+
+        if len(longs) == len(shorts):
+            return True
+        else:
+            return False
+
     def data_analysis(self):
         print("\n============== Data analysis =============")
         symbols = list(self.processed_params.keys())
-        # symbols_in_trade = [key.split("_")[0].strip(",. ") for key in self.tickers.keys()]
-        # symbols = [symbol for symbol in symbols if symbol not in symbols_in_trade]
 
         contracts = []
         for symbol in symbols:
-            contracts.append(Stock(symbol, "SMART", 'USD'))
+            m = re.findall(r"\d+\s*$", symbol)
+            if m:
+                _type = "future"
+                _month = str(int(m[0]) + 2020) + MONTH_DICT[symbol.replace(m[0], "")[-1]]
+                _symbol = symbol.replace(m[0], "")[:-1]
+            else:
+                _type = "stock"
+                _month = ""
+                _symbol = symbol
+            if _type == "future":
+                contracts.append(Future(_symbol, _month, "GLOBEX"))
+            else:
+                contracts.append(Stock(_symbol, "SMART", 'USD'))
         ib.qualifyContracts(*contracts)
-        ib.reqMarketDataType(4)
+        # ib.reqMarketDataType(4)
 
         for _contract, symbol in zip(contracts, symbols):
-            # print(contract)
             bar_size, duration = get_bar_duration_size(self.processed_params[symbol]["timeframe"])
             tick = float(self.processed_params[symbol]["tick"])
             print(f"{symbol} - Bar size and duration: {bar_size}, {duration}")
@@ -385,9 +420,7 @@ class Engine:
                 continue
 
             df["percent_change"] = df.close.pct_change(int(float(self.processed_params[symbol]["percent_change_lag"])))
-            # df["sd_percent"] = clib.std(df, "percent_change", int(float(processed_params[symbol]["sd_lag"])))
             df["sd_percent"] = df["percent_change"].rolling(int(float(self.processed_params[symbol]["sd_lag"]))).std()
-            # df["sd_px"] = clib.std(df, "close", int(float(processed_params[symbol]["sd_lag"])))
             df["sd_px"] = df["close"].rolling(int(float(self.processed_params[symbol]["sd_lag"]))).std()
             df["percent_change_mean"] = df["percent_change"].rolling(
                 int(float(self.processed_params[symbol]["sd_lag"]))).mean()
@@ -395,8 +428,6 @@ class Engine:
                                                      df["percent_change_mean"], df["sd_percent"])
             df["percent_change_norm_cdf"] = norm.cdf(df["percent_change"],
                                                      df["percent_change_mean"], df["sd_percent"])
-            # df["percent_change_norm_ppf"] = df["percent_change_norm_ppf"].fillna(method="ffill")
-            # df["percent_change_norm_cdf"] = df["percent_change_norm_cdf"].fillna(method="ffill")
 
             df["current_max"] = df["high"].rolling(
                 int(float(self.processed_params[symbol]["max_current_high_prd"]))).max()

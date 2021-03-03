@@ -63,9 +63,5 @@ class Config:
         self.prod_params = prod_params
 
 
-PAPER_ACCOUNT = 'DU1640258'
-PAPER_USERNAME = 'bmdf1970p'
-PAPER_PASSWORD = 'k1LL3R97!!'
-
-# user: dakuh927
-# pass: Elephantdrive345!
+MONTH_DICT = {"F": "01", "G": "02", "H": "03", "J": "04", "K": "05", "M": "06", "N": "07", "Q": "08", "U": "09",
+              "V": "10", "X": "11", "Z": "12"}
