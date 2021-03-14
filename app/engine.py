@@ -108,7 +108,10 @@ def get_market_price(symbol):
         _symbol = symbol
 
     if _type == "future":
-        contracts = [Future(_symbol, _month, "GLOBEX")]
+        if _symbol == "CL":
+            contracts = [Future(_symbol, _month, "NYMEX")]
+        else:
+            contracts = [Future(_symbol, _month, "GLOBEX")]
     else:
         contracts = [Stock(_symbol, "SMART", 'USD')]
     ib.qualifyContracts(*contracts)
@@ -141,7 +144,7 @@ class Engine:
 
     def run_cycle(self):
         while True:
-            if self.app_status == "ON":
+            if self.app_status != "$$$":
                 ib.sleep(1)
                 print("\n\n=================== Cycle begin! =====================\n")
                 print(f"\nCurrent time: {datetime.now()}")
@@ -381,9 +384,15 @@ class Engine:
                 _month = ""
                 _symbol = symbol
             if _type == "future":
-                contracts.append(Future(_symbol, _month, "GLOBEX"))
+                if _symbol == "CL":
+                    _contract = Future(_symbol, _month, "NYMEX")
+                else:
+                    _contract = Future(_symbol, _month, "GLOBEX")
             else:
-                contracts.append(Stock(_symbol, "SMART", 'USD'))
+                _contract = Stock(_symbol, "SMART", 'USD')
+            contracts.append(_contract)
+            print(_contract)
+
         ib.qualifyContracts(*contracts)
         # ib.reqMarketDataType(4)
 
@@ -592,7 +601,7 @@ class Engine:
 
 
 if __name__ == "__main__":
-    th = Thread(target=main)
-    th.start()
+    # th = Thread(target=main)
+    # th.start()
     engine = Engine()
     engine.run_cycle()
