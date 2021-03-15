@@ -89,9 +89,14 @@ def custom_round(data, tick):
     return np.floor(data * round_factor) / round_factor
 
 
+# def is_crossed(last, entry, current):
+#     if (max(last, entry) == entry and max(entry, current) == current) or \
+#             (min(last, entry) == entry and min(entry, current) == current):
+#         return True
+#     return False
+
 def is_crossed(last, entry, current):
-    if (max(last, entry) == entry and max(entry, current) == current) or \
-            (min(last, entry) == entry and min(entry, current) == current):
+    if current > entry or current < entry:
         return True
     return False
 
@@ -190,10 +195,11 @@ class Engine:
                 "ExitPrice": _ticker.exit_price,
                 "ExitChannel": _ticker.exit_channel
             }
+
             if trade_summary["EntryTime"]:
                 trade_summary["EntryTime"] = trade_summary["EntryTime"].split(" ")[1].split(".")[0]
             if trade_summary["ExitTime"]:
-                trade_summary["ExitTime"] = trade_summary["EntryTime"].split(" ")[1].split(".")[0]
+                trade_summary["ExitTime"] = trade_summary["ExitTime"].split(" ")[1].split(".")[0]
             if _ticker.entry_filled:
                 if _ticker.exit_filled:
                     if _ticker.direction == "LONG":
@@ -243,12 +249,15 @@ class Engine:
         for key in self.tickers:
             print(key)
             _ticker = self.tickers[key]
+            if _ticker.exit_filled:
+                continue
             entry_price = _ticker.limit_price
             symbol = _ticker.symbol
             direction = _ticker.direction
 
             if not _ticker.entry_filled and _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
                 _ticker.entry_filled = True
+                _ticker.entry_price = self.tickers[key].bracket_entry["limit_entry"].orderStatus.avgFillPrice
                 curr_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
                 if curr_bar_id not in self.tickers[key].max_hold_queue:
                     self.tickers[key].max_hold_queue.append(curr_bar_id)
@@ -324,7 +333,7 @@ class Engine:
                 _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
                 continue
 
-            current_bar_id = str(self.dfs["symbol"].iloc[-1]["date"])
+            current_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
             if current_bar_id in _ticker.max_hold_queue:
                 continue
             _ticker.max_hold_queue.append(current_bar_id)
@@ -352,6 +361,7 @@ class Engine:
             _ticker.bracket_entry["take_profit"] = ib.placeOrder(_contract, tp_order)
             _ticker.bracket_entry["stop_loss"] = ib.placeOrder(_contract, sl_order)
             ib.sleep(2)
+            print("Take profit and stop loss updated!")
 
         for key in del_keys:
             del self.tickers[key]
@@ -465,10 +475,10 @@ class Engine:
             product_state["short_cond"] = False
             product_state["last_price"] = None
 
-            long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) and \
-                        (df.iloc[-1]["percent_change_norm_cdf"] >= float(
-                            self.processed_params[symbol]["norm_threshold"])) and \
-                        (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
+            long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) #and \
+                        # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+                        #     self.processed_params[symbol]["norm_threshold"])) and \
+                        # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
 
             print("\n")
             print(
@@ -482,10 +492,10 @@ class Engine:
             if long_cond:
                 product_state["long_cond"] = True
 
-            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"]) and \
-                         (df.iloc[-1]["percent_change_norm_cdf"] >= float(
-                             self.processed_params[symbol]["norm_threshold"])) and \
-                         (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
+            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"]) #and \
+                         # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+                         #     self.processed_params[symbol]["norm_threshold"])) and \
+                         # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
 
             print(
                 f"{symbol} - Current min:{df.iloc[-1]['current_min']}, "
@@ -550,7 +560,24 @@ class Engine:
 
         print(f"Hey, there is a new entry: {symbol}-{direction}-{entry_price}")
 
-        contracts = [Stock(symbol, "SMART", 'USD')]
+        m = re.findall(r"\d+\s*$", symbol)
+        if m:
+            _type = "future"
+            _month = str(int(m[0]) + 2020) + MONTH_DICT[symbol.replace(m[0], "")[-1]]
+            _symbol = symbol.replace(m[0], "")[:-1]
+        else:
+            _type = "stock"
+            _month = ""
+            _symbol = symbol
+
+        if _type == "future":
+            if _symbol == "CL":
+                contracts = [Future(_symbol, _month, "NYMEX")]
+            else:
+                contracts = [Future(_symbol, _month, "GLOBEX")]
+        else:
+            contracts = [Stock(_symbol, "SMART", 'USD')]
+
         ib.qualifyContracts(*contracts)
         ib.reqExecutions()
         tick = float(self.processed_params[symbol]["tick"])
@@ -587,12 +614,13 @@ class Engine:
 
         if self.tickers[key].bracket_entry["limit_entry"].orderStatus.status == "Filled":
             self.tickers[key].entry_filled = True
+            self.tickers[key].entry_price = self.tickers[key].bracket_entry["limit_entry"].orderStatus.avgFillPrice
             curr_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
             if curr_bar_id not in self.tickers[key].max_hold_queue:
                 self.tickers[key].max_hold_queue.append(curr_bar_id)
 
             max_stop_price = custom_round(entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                float(self.processed_params[symbol]["sd_px"])), tick)
+                self.dfs[symbol].iloc[-1]["sd_px"]), tick)
             _side = "SELL" if side == "BUY" else "BUY"
             max_stop_order = StopOrder(_side, size, max_stop_price)
             self.tickers[key].max_stop_exit = ib.placeOrder(contracts[0], max_stop_order)
