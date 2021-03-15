@@ -299,6 +299,7 @@ class Engine:
                 continue
 
             if _ticker.market_exit and _ticker.market_exit.orderStatus == "Filled":
+                print("Position closed at market!")
                 _ticker.exit_filled = True
                 _ticker.exit_time = str(datetime.now())
                 _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
