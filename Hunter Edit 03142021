@@ -1,0 +1,10 @@
+             long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) #and \
+                        # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+                        #     self.processed_params[symbol]["norm_threshold"])) and \
+                        # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
+
+            
+            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"]) #and \
+                         # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+                         #     self.processed_params[symbol]["norm_threshold"])) and \
+                         # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
