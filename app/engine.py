@@ -5,12 +5,23 @@ from sortedcontainers import SortedDict
 from datetime import datetime
 from threading import Thread
 import re
-# import logging
+import logging
+import verboselogs
 
 from ib_insync import *
 from config import *
 from gui import main
 from tick import Tick
+
+logger = verboselogs.VerboseLogger('verbose')
+logger.addHandler(logging.StreamHandler())
+if LOG_LEVEL == "VERBOSE":
+    logger.setLevel(logging.VERBOSE)
+else:
+    logger.setLevel(logging.DEBUG)
+if LOG_LEVEL == "VERBOSE":
+    logger.verbose("\n\n====================== START! ========================\n")
+logger.debug("\n\n====================== START! ========================\n")
 
 ib = IB()
 ib.connect("127.0.0.1", 7497, clientId=23)
@@ -27,7 +38,7 @@ def get_prod_params(prod_params, params):
             val_processed = {item.split("=")[0].strip(",. "): eval(item.split("=")[1].strip("(),. ")) for item in pairs}
             values_processed.append(val_processed)
         except Exception as err:
-            print(err)
+            logger.debug(err)
             values_processed.append({})
 
     prod_params = {}
@@ -145,15 +156,16 @@ class Engine:
                 fp.write(self.app_status)
                 fp.close()
         except Exception as err:
-            print(err)
+            logger.debug(err)
 
     def run_cycle(self):
         while True:
             if self.app_status != "$$$":
                 ib.sleep(1)
-                print("\n\n=================== Cycle begin! =====================\n")
-                print(f"\nCurrent time: {datetime.now()}")
-                print(f"\nCurrent trades: {self.tickers}")
+                logger.debug("\n\n=================== Cycle begin! =====================\n")
+                logger.debug(f"\nCurrent time: {datetime.now()}")
+                if LOG_LEVEL != "VERBOSE":
+                    print(f"\nCurrent trades: {self.tickers}")
 
                 self.check_exit_trigger()
                 self.trade_summary()
@@ -162,13 +174,13 @@ class Engine:
                 self.check_entry_trigger()
                 self.listen_for_entry()
 
-                print("\n=================== Cycle end! =====================\n\n")
+                logger.debug("\n=================== Cycle end! =====================\n\n")
 
             try:
                 with open("settings/app_status.txt", "r") as fp:
                     self.app_status = fp.readlines()[0]
             except Exception as err:
-                print(err)
+                logger.debug(err)
                 self.app_status = "OFF"
 
     def update_params(self):
@@ -180,7 +192,7 @@ class Engine:
         # print(json.dumps(self.processed_params, indent=4))
 
     def trade_summary(self):
-        print("\n============== Updating trade summary =============")
+        logger.debug("\n============== Updating trade summary =============")
         trade_summaries = []
         for key in self.tickers:
             _ticker = self.tickers[key]
@@ -227,7 +239,7 @@ class Engine:
         try:
             dfs = pd.read_csv(f"trade-summary-{datetime.now().date()}.csv")
         except Exception as err:
-            print(err)
+            logger.debug(err)
             dfs = pd.DataFrame(columns=["Product", "TradeID", "Side", "Size", "EntryTime", "EntryPrice", "ExitTime",
                                         "ExitPrice", "ExitChannel", "RealizedPNL", "UnrealizedPNL"])
         dfs = dfs.fillna("")
@@ -235,25 +247,39 @@ class Engine:
         df = df.fillna("")
         dfs = dfs.append(df)
         dfs = dfs.drop_duplicates(subset=["TradeID"], keep="last").reset_index(drop=True)
-        print(dfs)
+        # print(dfs)
         dfs.to_csv(f"trades/trade-summary-{datetime.now().date()}.csv", index=False)
 
     def check_exit_trigger(self):
-        print("\n============== Checking for trade exits =============")
+        logger.debug("\n============== Checking for trade exits =============")
         if not self.tickers:
-            print("There are no trades yet!")
+            logger.debug("There are no trades yet!")
             return None
 
         del_keys = []
         ib.reqExecutions()
         for key in self.tickers:
-            print(key)
+            logger.debug(key)
             _ticker = self.tickers[key]
             if _ticker.exit_filled:
                 continue
             entry_price = _ticker.limit_price
             symbol = _ticker.symbol
             direction = _ticker.direction
+
+            if _ticker.bracket_entry["limit_entry"].orderStatus.status != "Filled":
+                current_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
+                if current_bar_id not in _ticker.max_hold_queue and len(_ticker.max_hold_queue) > 0:
+                    if LOG_LEVEL == "VERBOSE":
+                        logger.verbose(f"\n[{datetime.now()}]: {key} "
+                                       f"- entry not filled within the first bar. Cancel orders!")
+                    logger.debug(f"{key} - entry not filled within the first bar. Cancel orders!")
+                    ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
+                    del_keys.append(key)
+                    continue
+                if current_bar_id not in _ticker.max_hold_queue and len(_ticker.max_hold_queue) == 0:
+                    _ticker.max_hold_queue.append(current_bar_id)
+                continue
 
             if not _ticker.entry_filled and _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
                 _ticker.entry_filled = True
@@ -270,13 +296,12 @@ class Engine:
                     self.tickers[key].max_stop_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract,
                                                                     max_stop_order)
 
-            if _ticker.bracket_entry["limit_entry"].orderStatus.status != "Filled":
-                print(f"{symbol} - entry not filled!")
-                continue
-
             if _ticker.max_stop_exit:
                 if _ticker.max_stop_exit.orderStatus.status == "Filled":
-                    print(f"{symbol} - max stop order has been triggered.\nCancelling bracket order...")
+                    if LOG_LEVEL == "VERBOSE":
+                        logger.verbose(f"\n[{datetime.now()}]: {symbol} - "
+                                       f"max stop order has been triggered.\nCancelling bracket order...")
+                    logger.debug(f"{symbol} - max stop order has been triggered.\nCancelling bracket order...")
                     _ticker.exit_filled = True
                     _ticker.exit_time = str(datetime.now())
                     _ticker.exit_price = _ticker.max_stop_exit.orderStatus.avgFillPrice
@@ -286,7 +311,6 @@ class Engine:
 
             if (_ticker.bracket_entry["take_profit"].orderStatus.status == "Filled") or \
                     (_ticker.bracket_entry["stop_loss"].orderStatus.status == "Filled"):
-                print(f"{symbol} - exit triggered!")
                 _ticker.exit_filled = True
                 _ticker.exit_time = str(datetime.now())
                 if _ticker.bracket_entry["take_profit"].orderStatus.status == "Filled":
@@ -295,11 +319,16 @@ class Engine:
                 if _ticker.bracket_entry["stop_loss"].orderStatus.status == "Filled":
                     _ticker.exit_price = _ticker.bracket_entry["stop_loss"].orderStatus.avgFillPrice
                     _ticker.exit_channel = "SL"
+                if LOG_LEVEL == "VERBOSE":
+                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - exit triggered by {_ticker.exit_channel}!")
+                logger.debug(f"{symbol} - exit triggered by {_ticker.exit_channel}!")
                 _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
                 continue
 
             if _ticker.market_exit and _ticker.market_exit.orderStatus == "Filled":
-                print("Position closed at market!")
+                if LOG_LEVEL == "VERBOSE":
+                    logger.verbose(f"\n[{datetime.now()}]: {key} - Position closed at market!")
+                logger.debug("Position closed at market!")
                 _ticker.exit_filled = True
                 _ticker.exit_time = str(datetime.now())
                 _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
@@ -309,12 +338,17 @@ class Engine:
                 continue
 
             if len(_ticker.max_hold_queue) >= float(self.processed_params[symbol]["max_prd_hold"]):
-                print(f"{symbol} - passed max hold period without trade exit!\nLets close this position.")
+                if LOG_LEVEL == "VERBOSE":
+                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - "
+                                   f"passed max hold period without trade exit!\nLets close this position.")
+                logger.debug(f"{symbol} - passed max hold period without trade exit!\nLets close this position.")
 
                 # closing the position at market
                 if _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
                     if self.is_net_flat(symbol):
-                        print(f"{symbol} - is currently in a net flat! Skip closing")
+                        if LOG_LEVEL == "VERBOSE":
+                            logger.verbose(f"\n[{datetime.now()}]: {symbol} - is currently in a net flat! Skip closing")
+                        logger.debug(f"{symbol} - is currently in a net flat! Skip closing")
                         continue
                     side = "SELL" if _ticker.direction == "LONG" else "BUY"
                     _order = MarketOrder(side, _ticker.quantity)
@@ -327,7 +361,7 @@ class Engine:
 
                     _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
                 else:
-                    print(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
+                    logger.debug(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
                     _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
                     del_keys.append(key)
 
@@ -352,6 +386,11 @@ class Engine:
                 sl_price = custom_round(entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (
                     self.dfs[symbol].iloc[-1]["sd_px"]), tick)
 
+            if LOG_LEVEL == "VERBOSE":
+                logger.verbose(f"\n[{datetime.now()}]: {key} - updating tp and sl orders")
+            logger.debug("updating tp and sl orders")
+            logger.debug(f'tp order original status: {_ticker.bracket_entry["take_profit"].orderStatus.status}')
+            logger.debug(f'sl order original status: {_ticker.bracket_entry["stop_loss"].orderStatus.status}')
             _contract = _ticker.bracket_entry["limit_entry"].contract
             tp_order = _ticker.bracket_entry["take_profit"].order
             sl_order = _ticker.bracket_entry["stop_loss"].order
@@ -362,7 +401,9 @@ class Engine:
             _ticker.bracket_entry["take_profit"] = ib.placeOrder(_contract, tp_order)
             _ticker.bracket_entry["stop_loss"] = ib.placeOrder(_contract, sl_order)
             ib.sleep(2)
-            print("Take profit and stop loss updated!")
+            if LOG_LEVEL == "VERBOSE":
+                logger.verbose(f"\n[{datetime.now()}]: {key} - Take profit and stop loss updated!")
+            logger.debug("Take profit and stop loss updated!")
 
         for key in del_keys:
             del self.tickers[key]
@@ -380,7 +421,7 @@ class Engine:
             return False
 
     def data_analysis(self):
-        print("\n============== Data analysis =============")
+        logger.debug("\n============== Data analysis =============")
         symbols = list(self.processed_params.keys())
 
         contracts = []
@@ -402,7 +443,7 @@ class Engine:
             else:
                 _contract = Stock(_symbol, "SMART", 'USD')
             contracts.append(_contract)
-            print(_contract)
+            # print(contract)
 
         ib.qualifyContracts(*contracts)
         # ib.reqMarketDataType(4)
@@ -410,7 +451,7 @@ class Engine:
         for _contract, symbol in zip(contracts, symbols):
             bar_size, duration = get_bar_duration_size(self.processed_params[symbol]["timeframe"])
             tick = float(self.processed_params[symbol]["tick"])
-            print(f"{symbol} - Bar size and duration: {bar_size}, {duration}")
+            logger.debug(f"{symbol} - Bar size and duration: {bar_size}, {duration}")
             try:
                 bars = ib.reqHistoricalData(
                     _contract,
@@ -422,13 +463,13 @@ class Engine:
                     formatDate=1,
                     keepUpToDate=False)
             except Exception as err:
-                print("historical data rek error: ", err)
+                logger.debug("historical data rek error: ", err)
                 continue
 
             try:
                 df = util.df(bars)[['date', 'open', 'high', 'low', 'close']].tail(100).reset_index(drop=True)
             except Exception as err:
-                print("dataframe convert error: ", err)
+                logger.debug("dataframe convert error: ", err)
                 continue
 
             df["percent_change"] = df.close.pct_change(int(float(self.processed_params[symbol]["percent_change_lag"])))
@@ -456,18 +497,18 @@ class Engine:
 
             df["long_entry_px"] = custom_round(df["current_max"], tick)
             df["short_entry_px"] = custom_round(df["current_min"], tick)
-            print(f"{symbol} - current bar statistics:\n{dict(df.iloc[-1])}\n")
+            logger.debug(f"{symbol} - current bar statistics:\n{dict(df.iloc[-1])}\n")
 
             self.dfs[symbol] = df
 
     def check_entry_trigger(self):
-        print("\n============== Checking for entries long/short condition =============")
+        logger.debug("\n============== Checking for entries long/short condition =============")
         for symbol in self.dfs.keys():
             df = self.dfs[symbol]
             current_bar = str(df.iloc[-1]["date"]) + "_" + str(self.processed_params[symbol]["timeframe"])
-            if symbol in self.product_live_states.keys() and current_bar == self.product_live_states[symbol][
-                "last_bar"]:
-                print(f"{symbol} - current bar already seen - {current_bar}\n")
+            if symbol in self.product_live_states.keys() and \
+                    current_bar == self.product_live_states[symbol]["last_bar"]:
+                logger.debug(f"{symbol} - current bar already seen - {current_bar}\n")
                 continue
 
             product_state = dict()
@@ -481,15 +522,15 @@ class Engine:
                         #     self.processed_params[symbol]["norm_threshold"])) and \
                         # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
 
-            print("\n")
-            print(
+            logger.debug("\n")
+            logger.debug(
                 f"{symbol} - Current max:{df.iloc[-1]['current_max']}, "
                 f"Past period max high:{df.iloc[-1]['past_period_max_high']}")
-            print(
+            logger.debug(
                 f"{symbol} - Percent change norm cdf:{df.iloc[-1]['percent_change_norm_cdf']}, "
                 f"Norm threshold:{float(self.processed_params[symbol]['norm_threshold'])}")
-            print(f"{symbol} - Current open:{df.iloc[-1]['open']}, Long entry px:{df.iloc[-1]['long_entry_px']}")
-            print(f"{symbol} - Long condition: {long_cond}\n")
+            logger.debug(f"{symbol} - Current open:{df.iloc[-1]['open']}, Long entry px:{df.iloc[-1]['long_entry_px']}")
+            logger.debug(f"{symbol} - Long condition: {long_cond}\n")
             if long_cond:
                 product_state["long_cond"] = True
 
@@ -498,14 +539,14 @@ class Engine:
                          #     self.processed_params[symbol]["norm_threshold"])) and \
                          # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
 
-            print(
+            logger.debug(
                 f"{symbol} - Current min:{df.iloc[-1]['current_min']}, "
                 f"Past period min low:{df.iloc[-1]['past_period_min_low']}")
-            print(
+            logger.debug(
                 f"{symbol} - Percent change norm cdf:{df.iloc[-1]['percent_change_norm_cdf']}, "
                 f"Norm threshold:{float(self.processed_params[symbol]['norm_threshold'])}")
-            print(f"{symbol} - Current open:{df.iloc[-1]['open']}, Short entry px:{df.iloc[-1]['short_entry_px']}")
-            print(f"{symbol} - short condition: {short_cond}")
+            logger.debug(f"{symbol} - Current open:{df.iloc[-1]['open']}, Short entry px:{df.iloc[-1]['short_entry_px']}")
+            logger.debug(f"{symbol} - short condition: {short_cond}")
             if short_cond:
                 product_state["short_cond"] = True
 
@@ -514,41 +555,43 @@ class Engine:
             self.product_live_states[symbol] = product_state
 
     def listen_for_entry(self):
-        print("\n============== Listening for entry =============")
+        logger.debug("\n============== Listening for entry =============")
         for symbol in self.dfs.keys():
             df = self.dfs[symbol]
             long_key = symbol + "_" + "LONG" + "_" + str(self.dfs[symbol].iloc[-1]["date"])
             short_key = symbol + "_" + "SHORT" + "_" + str(self.dfs[symbol].iloc[-1]["date"])
             if long_key in self.tickers:
-                print(f"{symbol} - currently in a long position as - {long_key}!")
+                logger.debug(f"{symbol} - currently in a long position as - {long_key}!")
             else:
                 if not self.product_live_states[symbol]["long_cond"]:
-                    print(f"{symbol} - long condition false")
+                    logger.debug(f"{symbol} - long condition false")
                 else:
-                    print(f"{symbol} - long condition true. Listening for a long entry.")
+                    logger.debug(f"{symbol} - long condition true. Listening for a long entry.")
                     last_price = self.product_live_states[symbol]["last_price"]
                     current_price = get_market_price(symbol)
                     entry_price = df.iloc[-1]["long_entry_px"]
-                    print(f"Last_price: {last_price}, current_price: {current_price}, long_entry_price: {entry_price}")
+                    logger.debug(f"Last_price: {last_price}, current_price: {current_price}, "
+                                 f"long_entry_price: {entry_price}")
                     if is_crossed(last_price, entry_price, current_price):
-                        print(f"{symbol} - entry price crossed. Entering a long position.")
+                        logger.debug(f"{symbol} - entry price crossed. Entering a long position.")
                         self.enter_trades(symbol, "LONG", entry_price)
                     # else:
                     #     self.product_live_states[symbol]["last_price"] = current_price
 
             if short_key in self.tickers:
-                print(f"{symbol} - currently in a short position as - {short_key}!")
+                logger.debug(f"{symbol} - currently in a short position as - {short_key}!")
             else:
                 if not self.product_live_states[symbol]["short_cond"]:
-                    print(f"{symbol} - short condition false")
+                    logger.debug(f"{symbol} - short condition false")
                 else:
-                    print(f"{symbol} - short condition true. Listening for a short entry.")
+                    logger.debug(f"{symbol} - short condition true. Listening for a short entry.")
                     last_price = self.product_live_states[symbol]["last_price"]
                     current_price = get_market_price(symbol)
                     entry_price = df.iloc[-1]["short_entry_px"]
-                    print(f"Last_price: {last_price}, current_price: {current_price}, short_entry_price: {entry_price}")
+                    logger.debug(f"Last_price: {last_price}, current_price: {current_price}, "
+                                 f"short_entry_price: {entry_price}")
                     if is_crossed(last_price, entry_price, current_price):
-                        print(f"{symbol} - entry price crossed. Entering a short position.")
+                        logger.debug(f"{symbol} - entry price crossed. Entering a short position.")
                         self.enter_trades(symbol, "SHORT", entry_price)
                     # else:
                     #     self.product_live_states[symbol]["last_price"] = current_price
@@ -556,10 +599,15 @@ class Engine:
     def enter_trades(self, symbol, direction, entry_price):
         num_trades_product = len([key for key in self.tickers.keys() if symbol in key and direction in key])
         if num_trades_product >= 10:
-            print(f"We have already 10 {direction} positions for {symbol}.\nLets skip this entry!")
+            if LOG_LEVEL == "VERBOSE":
+                logger.verbose(f"\n[{datetime.now()}]: We have already 10 {direction} positions for {symbol}.\n"
+                               f"Lets skip this entry!")
+            logger.debug(f"We have already 10 {direction} positions for {symbol}.\nLets skip this entry!")
             return None
 
-        print(f"Hey, there is a new entry: {symbol}-{direction}-{entry_price}")
+        if LOG_LEVEL == "VERBOSE":
+            logger.verbose(f"\n[{datetime.now()}]: A new entry: {symbol}-{direction}-{entry_price}")
+        logger.debug(f"Hey, there is a new entry: {symbol}-{direction}-{entry_price}")
 
         m = re.findall(r"\d+\s*$", symbol)
         if m:
@@ -626,7 +674,8 @@ class Engine:
             max_stop_order = StopOrder(_side, size, max_stop_price)
             self.tickers[key].max_stop_exit = ib.placeOrder(contracts[0], max_stop_order)
 
-        print(self.tickers[key].bracket_entry, "\n")
+        if LOG_LEVEL != "VERBOSE":
+            print(self.tickers[key].bracket_entry, "\n")
 
 
 if __name__ == "__main__":
