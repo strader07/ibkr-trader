@@ -517,10 +517,10 @@ class Engine:
             product_state["short_cond"] = False
             product_state["last_price"] = None
 
-            long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) #and \
-                        # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
-                        #     self.processed_params[symbol]["norm_threshold"])) and \
-                        # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
+            long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"])  # and \
+            # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+            #     self.processed_params[symbol]["norm_threshold"])) and \
+            # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
 
             logger.debug("\n")
             logger.debug(
@@ -534,10 +534,10 @@ class Engine:
             if long_cond:
                 product_state["long_cond"] = True
 
-            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"]) #and \
-                         # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
-                         #     self.processed_params[symbol]["norm_threshold"])) and \
-                         # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
+            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"])  # and \
+            # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
+            #     self.processed_params[symbol]["norm_threshold"])) and \
+            # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
 
             logger.debug(
                 f"{symbol} - Current min:{df.iloc[-1]['current_min']}, "
@@ -545,7 +545,8 @@ class Engine:
             logger.debug(
                 f"{symbol} - Percent change norm cdf:{df.iloc[-1]['percent_change_norm_cdf']}, "
                 f"Norm threshold:{float(self.processed_params[symbol]['norm_threshold'])}")
-            logger.debug(f"{symbol} - Current open:{df.iloc[-1]['open']}, Short entry px:{df.iloc[-1]['short_entry_px']}")
+            logger.debug(
+                f"{symbol} - Current open:{df.iloc[-1]['open']}, Short entry px:{df.iloc[-1]['short_entry_px']}")
             logger.debug(f"{symbol} - short condition: {short_cond}")
             if short_cond:
                 product_state["short_cond"] = True
@@ -574,9 +575,7 @@ class Engine:
                                  f"long_entry_price: {entry_price}")
                     if is_crossed(last_price, entry_price, current_price):
                         logger.debug(f"{symbol} - entry price crossed. Entering a long position.")
-                        self.enter_trades(symbol, "LONG", entry_price)
-                    # else:
-                    #     self.product_live_states[symbol]["last_price"] = current_price
+                        self.enter_trades(symbol, "LONG", entry_price, current_price)
 
             if short_key in self.tickers:
                 logger.debug(f"{symbol} - currently in a short position as - {short_key}!")
@@ -592,11 +591,9 @@ class Engine:
                                  f"short_entry_price: {entry_price}")
                     if is_crossed(last_price, entry_price, current_price):
                         logger.debug(f"{symbol} - entry price crossed. Entering a short position.")
-                        self.enter_trades(symbol, "SHORT", entry_price)
-                    # else:
-                    #     self.product_live_states[symbol]["last_price"] = current_price
+                        self.enter_trades(symbol, "SHORT", entry_price, current_price)
 
-    def enter_trades(self, symbol, direction, entry_price):
+    def enter_trades(self, symbol, direction, entry_price, current_price):
         num_trades_product = len([key for key in self.tickers.keys() if symbol in key and direction in key])
         if num_trades_product >= 10:
             if LOG_LEVEL == "VERBOSE":
@@ -654,12 +651,32 @@ class Engine:
         _ticker = Tick(lmt_price, size, symbol, direction, str(datetime.now()))
         key = symbol + "_" + direction + "_" + str(self.dfs[symbol].iloc[-1]["date"])
         self.tickers[key] = _ticker
-
-        bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price)
-        self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
-        self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
-        self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
-        ib.sleep(4)
+        if lmt_price <= current_price:
+            if direction == "LONG":
+                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price)
+                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                ib.sleep(4)
+            else:
+                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price)
+                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                ib.sleep(4)
+        else:
+            if direction == "LONG":
+                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price)
+                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                ib.sleep(4)
+            else:
+                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price)
+                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                ib.sleep(4)
 
         if self.tickers[key].bracket_entry["limit_entry"].orderStatus.status == "Filled":
             self.tickers[key].entry_filled = True
