@@ -25,7 +25,7 @@ from .contract import (
     TagValue, ComboLeg, DeltaNeutralContract, ContractDetails,
     ContractDescription, ScanData)
 from .order import (
-    Order, Trade, LimitOrder, MidPriceOrder, TrailingStopOrder, MarketOrder, StopOrder, StopLimitOrder,
+    Order, Trade, LimitOrder, MarketOrder, StopOrder, StopLimitOrder,
     BracketOrder, OrderCondition, ExecutionCondition, MarginCondition,
     TimeCondition, PriceCondition, PercentChangeCondition, VolumeCondition,
     OrderStatus, OrderState, OrderComboLeg)
