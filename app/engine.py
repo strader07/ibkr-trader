@@ -518,10 +518,10 @@ class Engine:
             product_state["short_cond"] = False
             product_state["last_price"] = None
 
-            long_cond = (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"])  # and \
+            long_cond = (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"]) # and (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) and \
             # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
             #     self.processed_params[symbol]["norm_threshold"])) and \
-            # (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"])
+             
 
             logger.debug("\n")
             logger.debug(
@@ -535,10 +535,10 @@ class Engine:
             if long_cond:
                 product_state["long_cond"] = True
 
-            short_cond = (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"])  # and \
+            short_cond = (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"]) # and (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"])  # and \
             # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
             #     self.processed_params[symbol]["norm_threshold"])) and \
-            # (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"])
+            
 
             logger.debug(
                 f"{symbol} - Current min:{df.iloc[-1]['current_min']}, "
