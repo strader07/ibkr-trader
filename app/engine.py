@@ -289,8 +289,9 @@ class Engine:
                     self.tickers[key].max_hold_queue.append(curr_bar_id)
 
                 if not _ticker.max_stop_exit:
-                    max_stop_price = round(entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                        float(self.processed_params[symbol]["sd_px"])), 2)
+                    tick = float(self.processed_params[symbol]["tick"])
+                    max_stop_price = custom_round(entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
+                        float(self.dfs[symbol].iloc[-1]["sd_px"])), tick)
                     side = "SELL" if direction == "LONG" else "BUY"
                     max_stop_order = StopOrder(side, _ticker.quantity, max_stop_price)
                     self.tickers[key].max_stop_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract,
