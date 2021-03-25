@@ -215,10 +215,12 @@ class Engine:
             if _ticker.entry_filled:
                 if _ticker.exit_filled:
                     if _ticker.direction == "LONG":
-                        trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price)
+                        if _ticker.exit_price:
+                            trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price)
                     else:
-                        trade_summary["RealizedPNL"] = _ticker.quantity * (_ticker.exit_price - _ticker.entry_price) * (
-                            -1)
+                        if _ticker.exit_price:
+                            trade_summary["RealizedPNL"] = _ticker.quantity * \
+                                                           (_ticker.exit_price - _ticker.entry_price) * (-1)
                     trade_summary["UnrealizedPNL"] = ""
                 else:
                     current_price = get_market_price(_ticker.symbol)
@@ -326,7 +328,7 @@ class Engine:
                 _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
                 continue
 
-            if _ticker.market_exit and _ticker.market_exit.orderStatus == "Filled":
+            if not _ticker.exit_filled and _ticker.market_exit and _ticker.market_exit.orderStatus.status == "Filled":
                 if LOG_LEVEL == "VERBOSE":
                     logger.verbose(f"\n[{datetime.now()}]: {key} - Position closed at market!")
                 logger.debug("Position closed at market!")
@@ -338,11 +340,12 @@ class Engine:
             if _ticker.exit_filled:
                 continue
 
-            if len(_ticker.max_hold_queue) >= float(self.processed_params[symbol]["max_prd_hold"]):
+            if not _ticker.market_exit and len(_ticker.max_hold_queue) >= \
+                    float(self.processed_params[symbol]["max_prd_hold"]):
                 if LOG_LEVEL == "VERBOSE":
-                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - "
+                    logger.verbose(f"\n[{datetime.now()}]: {key} - "
                                    f"passed max hold period without trade exit!\nLets close this position.")
-                logger.debug(f"{symbol} - passed max hold period without trade exit!\nLets close this position.")
+                logger.debug(f"{key} - passed max hold period without trade exit!\nLets close this position.")
 
                 # closing the position at market
                 if _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
@@ -355,12 +358,14 @@ class Engine:
                     _order = MarketOrder(side, _ticker.quantity)
                     _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
                     ib.sleep(4)
-                    if _ticker.market_exit.orderStatus == "Filled":
+                    if _ticker.market_exit.orderStatus.status == "Filled":
                         _ticker.exit_filled = True
+                        _ticker.exit_channel = "MKT"
                         _ticker.exit_time = str(datetime.now())
                         _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
 
                     _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
+
                 else:
                     logger.debug(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
                     _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
@@ -631,7 +636,7 @@ class Engine:
 
         if direction == "LONG":
             side = "BUY"
-            lmt_price = custom_round(entry_price + float(self.processed_params[symbol]["tick"]) * float(
+            lmt_price = custom_round(entry_price - float(self.processed_params[symbol]["tick"]) * float(
                 self.processed_params[symbol]["stop_limit_ticks"]), tick)
             tp_price = custom_round(entry_price + (float(self.processed_params[symbol]["target_sd"])) * (
                 self.dfs[symbol].iloc[-1]["sd_px"]), tick)
@@ -640,7 +645,7 @@ class Engine:
                 tick)
         else:
             side = "SELL"
-            lmt_price = custom_round(entry_price - float(self.processed_params[symbol]["tick"]) * float(
+            lmt_price = custom_round(entry_price + float(self.processed_params[symbol]["tick"]) * float(
                 self.processed_params[symbol]["stop_limit_ticks"]), tick)
             tp_price = custom_round(entry_price - (float(self.processed_params[symbol]["target_sd"])) * (
                 self.dfs[symbol].iloc[-1]["sd_px"]), tick)
