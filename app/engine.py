@@ -292,8 +292,9 @@ class Engine:
 
                 if not _ticker.max_stop_exit:
                     tick = float(self.processed_params[symbol]["tick"])
-                    max_stop_price = custom_round(entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                        float(self.dfs[symbol].iloc[-1]["sd_px"])), tick)
+                    max_stop_price = custom_round(
+                        entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
+                            float(self.dfs[symbol].iloc[-1]["sd_px"])), tick)
                     side = "SELL" if direction == "LONG" else "BUY"
                     max_stop_order = StopOrder(side, _ticker.quantity, max_stop_price)
                     self.tickers[key].max_stop_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract,
@@ -387,9 +388,9 @@ class Engine:
                 sl_price = custom_round(entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (
                     self.dfs[symbol].iloc[-1]["sd_px"]), tick)
             else:
-                tp_price = custom_round(entry_price + (float(self.processed_params[symbol]["target_sd"])) * (
+                tp_price = custom_round(entry_price - (float(self.processed_params[symbol]["target_sd"])) * (
                     self.dfs[symbol].iloc[-1]["sd_px"]), tick)
-                sl_price = custom_round(entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (
+                sl_price = custom_round(entry_price + (float(self.processed_params[symbol]["stop_sd"])) * (
                     self.dfs[symbol].iloc[-1]["sd_px"]), tick)
 
             if LOG_LEVEL == "VERBOSE":
@@ -523,10 +524,10 @@ class Engine:
             product_state["short_cond"] = False
             product_state["last_price"] = None
 
-            long_cond = (df.iloc[-1]["open"] <= df.iloc[-1]["long_entry_px"]) # and (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) and \
+            long_cond = (df.iloc[-1]["open"] <= df.iloc[-1][
+                "long_entry_px"])  # and (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) and \
             # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
             #     self.processed_params[symbol]["norm_threshold"])) and \
-             
 
             logger.debug("\n")
             logger.debug(
@@ -540,10 +541,10 @@ class Engine:
             if long_cond:
                 product_state["long_cond"] = True
 
-            short_cond = (df.iloc[-1]["open"] >= df.iloc[-1]["short_entry_px"]) # and (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"])  # and \
+            short_cond = (df.iloc[-1]["open"] >= df.iloc[-1][
+                "short_entry_px"])  # and (df.iloc[-1]["current_min"] == df.iloc[-1]["past_period_min_low"])  # and \
             # (df.iloc[-1]["percent_change_norm_cdf"] >= float(
             #     self.processed_params[symbol]["norm_threshold"])) and \
-            
 
             logger.debug(
                 f"{symbol} - Current min:{df.iloc[-1]['current_min']}, "
@@ -600,7 +601,8 @@ class Engine:
                         self.enter_trades(symbol, "SHORT", entry_price, current_price)
 
     def enter_trades(self, symbol, direction, entry_price, current_price):
-        num_trades_product = len([key for key in self.tickers.keys() if symbol in key and direction in key])
+        num_trades_product = len([key for key in self.tickers.keys() if symbol in key and direction in key and
+                                  not self.tickers[key].exit_filled])
         if num_trades_product >= 10:
             if LOG_LEVEL == "VERBOSE":
                 logger.verbose(f"\n[{datetime.now()}]: We have already 10 {direction} positions for {symbol}.\n"
@@ -643,6 +645,13 @@ class Engine:
             sl_price = custom_round(
                 entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
+            if self.check_entry_overlap(lmt_price, "LONG"):
+                if LOG_LEVEL == "VERBOSE":
+                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to long at {lmt_price}, but there is a "
+                                   f"short {symbol} at that level.\n Skip this entry.")
+                logger.debug(f"\n[{datetime.now()}]: {symbol} - trying to long at {lmt_price}, but there is a "
+                             f"short {symbol} at that level.\n Skip this entry.")
+                return None
         else:
             side = "SELL"
             lmt_price = custom_round(entry_price + float(self.processed_params[symbol]["tick"]) * float(
@@ -652,6 +661,13 @@ class Engine:
             sl_price = custom_round(
                 entry_price + (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
+            if self.check_entry_overlap(lmt_price, "SHORT"):
+                if LOG_LEVEL == "VERBOSE":
+                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to short at {lmt_price}, but there is a "
+                                   f"long {symbol} at that level.\n Skip this entry.")
+                logger.debug(f"\n[{datetime.now()}]: {symbol} - trying to short at {lmt_price}, but there is a "
+                             f"long {symbol} at that level.\n Skip this entry.")
+                return None
 
         size = float(self.processed_params[symbol]["size"])
         _ticker = Tick(lmt_price, size, symbol, direction, str(datetime.now()))
@@ -699,6 +715,16 @@ class Engine:
 
         if LOG_LEVEL != "VERBOSE":
             print(self.tickers[key].bracket_entry, "\n")
+
+    def check_entry_overlap(self, new_entry_price, direction):
+        if direction == "LONG":
+            entries = [_ticker.limit_price for _ticker in self.tickers if not _ticker.exit_filled and
+                       _ticker.direction == "SHORT"]
+        else:
+            entries = [_ticker.limit_price for _ticker in self.tickers if not _ticker.exit_filled and
+                       _ticker.direction == "LONG"]
+
+        return new_entry_price in entries
 
 
 if __name__ == "__main__":
