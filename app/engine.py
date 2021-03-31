@@ -718,11 +718,13 @@ class Engine:
 
     def check_entry_overlap(self, new_entry_price, direction):
         if direction == "LONG":
-            entries = [_ticker.limit_price for _ticker in self.tickers if not _ticker.exit_filled and
-                       _ticker.direction == "SHORT"]
+            entries = [self.tickers[key].limit_price for key in self.tickers if not self.tickers[key].exit_filled and
+                       self.tickers[key].direction == "SHORT"]
         else:
-            entries = [_ticker.limit_price for _ticker in self.tickers if not _ticker.exit_filled and
-                       _ticker.direction == "LONG"]
+            entries = [self.tickers[key].limit_price for key in self.tickers if not self.tickers[key].exit_filled and
+                       self.tickers[key].direction == "LONG"]
+
+        print(entries)
 
         return new_entry_price in entries
 
