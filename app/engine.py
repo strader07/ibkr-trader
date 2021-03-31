@@ -645,7 +645,7 @@ class Engine:
             sl_price = custom_round(
                 entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
-            if self.check_entry_overlap(lmt_price, "LONG"):
+            if self.check_entry_overlap(symbol, lmt_price, "LONG"):
                 if LOG_LEVEL == "VERBOSE":
                     logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to long at {lmt_price}, but there is a "
                                    f"short {symbol} at that level.\n Skip this entry.")
@@ -661,7 +661,7 @@ class Engine:
             sl_price = custom_round(
                 entry_price + (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
-            if self.check_entry_overlap(lmt_price, "SHORT"):
+            if self.check_entry_overlap(symbol, lmt_price, "SHORT"):
                 if LOG_LEVEL == "VERBOSE":
                     logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to short at {lmt_price}, but there is a "
                                    f"long {symbol} at that level.\n Skip this entry.")
@@ -716,13 +716,13 @@ class Engine:
         if LOG_LEVEL != "VERBOSE":
             print(self.tickers[key].bracket_entry, "\n")
 
-    def check_entry_overlap(self, new_entry_price, direction):
+    def check_entry_overlap(self, symbol, new_entry_price, direction):
         if direction == "LONG":
             entries = [self.tickers[key].limit_price for key in self.tickers if not self.tickers[key].exit_filled and
-                       self.tickers[key].direction == "SHORT"]
+                       self.tickers[key].direction == "SHORT" and symbol in key]
         else:
             entries = [self.tickers[key].limit_price for key in self.tickers if not self.tickers[key].exit_filled and
-                       self.tickers[key].direction == "LONG"]
+                       self.tickers[key].direction == "LONG" and symbol in key]
 
         print(entries)
 
