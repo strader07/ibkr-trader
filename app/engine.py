@@ -259,6 +259,7 @@ class Engine:
             return None
 
         del_keys = []
+        timed_exits = {}
         ib.reqExecutions()
         for key in self.tickers:
             logger.debug(key)
@@ -348,31 +349,18 @@ class Engine:
                                    f"passed max hold period without trade exit!\nLets close this position.")
                 logger.debug(f"{key} - passed max hold period without trade exit!\nLets close this position.")
 
-                # closing the position at market
-                if _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
-                    if self.is_net_flat(symbol):
-                        if LOG_LEVEL == "VERBOSE":
-                            logger.verbose(f"\n[{datetime.now()}]: {symbol} - is currently in a net flat! Skip closing")
-                        logger.debug(f"{symbol} - is currently in a net flat! Skip closing")
-                        continue
-                    side = "SELL" if _ticker.direction == "LONG" else "BUY"
-                    _order = MarketOrder(side, _ticker.quantity)
-                    _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
-                    ib.sleep(4)
-                    if _ticker.market_exit.orderStatus.status == "Filled":
-                        _ticker.exit_filled = True
-                        _ticker.exit_channel = "MKT"
-                        _ticker.exit_time = str(datetime.now())
-                        _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
-
-                    _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
-
+                exit_symbol = key.split("_")[0]
+                exit_direction = key.split("_")[1]
+                if exit_symbol not in timed_exits.keys():
+                    timed_exits[exit_symbol] = [{
+                        "key": key,
+                        "direction": exit_direction
+                    }]
                 else:
-                    logger.debug(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
-                    _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
-                    del_keys.append(key)
-
-                _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
+                    timed_exits[exit_symbol].append({
+                        "key": key,
+                        "direction": exit_direction
+                    })
                 continue
 
             current_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
@@ -414,6 +402,53 @@ class Engine:
 
         for key in del_keys:
             del self.tickers[key]
+
+        for exit_symbol in timed_exits.keys():
+            if len(timed_exits[exit_symbol]) > 2:
+                print(timed_exits[exit_symbol])
+                print("ERROR!!!")
+                exit()
+            if len(timed_exits[exit_symbol]) == 2:
+                if timed_exits[exit_symbol][0]["direction"] == timed_exits[exit_symbol][1]["direction"]:
+                    print(timed_exits[exit_symbol])
+                    print("ERROR!!!")
+                    exit()
+                else:
+                    if LOG_LEVEL == "VERBOSE":
+                        logger.verbose(f"\n[{datetime.now()}]: {exit_symbol} - trying to timed exit, but its net flat!")
+                    logger.debug(f"\n[{datetime.now()}]: {exit_symbol} - trying to timed exit, but its net flat!")
+                    print(timed_exits[exit_symbol])
+                    continue
+            if len(timed_exits[exit_symbol]) == 1:
+                # timed exit
+                key = timed_exits[exit_symbol][0]["key"]
+                symbol = exit_symbol
+                _ticker = self.tickers[key]
+                if _ticker.bracket_entry["limit_entry"].orderStatus.status == "Filled":
+                    if self.is_net_flat(symbol):
+                        if LOG_LEVEL == "VERBOSE":
+                            logger.verbose(f"\n[{datetime.now()}]: {symbol} - is currently in a net flat! Skip closing")
+                        logger.debug(f"{symbol} - is currently in a net flat! Skip closing")
+                        continue
+                    side = "SELL" if _ticker.direction == "LONG" else "BUY"
+                    _order = MarketOrder(side, _ticker.quantity)
+                    _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
+                    ib.sleep(4)
+                    if _ticker.market_exit.orderStatus.status == "Filled":
+                        _ticker.exit_filled = True
+                        _ticker.exit_channel = "MKT"
+                        _ticker.exit_time = str(datetime.now())
+                        _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
+
+                    _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
+
+                else:
+                    logger.debug(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
+                    _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
+                    del_keys.append(key)
+
+                _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
+                continue
 
     def is_net_flat(self, symbol):
         keys = [key for key in self.tickers if self.tickers[key].entry_filled]
