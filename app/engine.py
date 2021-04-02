@@ -3,14 +3,14 @@ import numpy as np
 from scipy.stats import norm
 from sortedcontainers import SortedDict
 from datetime import datetime
-from threading import Thread
+# from threading import Thread
 import re
 import logging
 import verboselogs
 
 from ib_insync import *
 from config import *
-from gui import main
+# from gui import main
 from tick import Tick
 
 logger = verboselogs.VerboseLogger('verbose')
@@ -107,12 +107,14 @@ def custom_round(data, tick):
 #     return False
 
 def is_crossed(last, entry, current):
+    if str(last) == "NaN":
+        print(last)
     if current > entry or current < entry:
         return True
     return False
 
 
-def get_market_price(symbol):
+def get_contract(symbol):
     m = re.findall(r"\d+\s*$", symbol)
     if m:
         _type = "future"
@@ -122,14 +124,19 @@ def get_market_price(symbol):
         _type = "stock"
         _month = ""
         _symbol = symbol
-
     if _type == "future":
         if _symbol == "CL":
-            contracts = [Future(_symbol, _month, "NYMEX")]
+            _contract = Future(_symbol, _month, "NYMEX")
         else:
-            contracts = [Future(_symbol, _month, "GLOBEX")]
+            _contract = Future(_symbol, _month, "GLOBEX")
     else:
-        contracts = [Stock(_symbol, "SMART", 'USD')]
+        _contract = Stock(_symbol, "SMART", 'USD')
+
+    return _contract
+
+
+def get_market_price(symbol):
+    contracts = [get_contract(symbol)]
     ib.qualifyContracts(*contracts)
     # ib.reqMarketDataType(4)
     ib.reqMktData(contracts[0], '', False, False)
@@ -468,22 +475,7 @@ class Engine:
 
         contracts = []
         for symbol in symbols:
-            m = re.findall(r"\d+\s*$", symbol)
-            if m:
-                _type = "future"
-                _month = str(int(m[0]) + 2020) + MONTH_DICT[symbol.replace(m[0], "")[-1]]
-                _symbol = symbol.replace(m[0], "")[:-1]
-            else:
-                _type = "stock"
-                _month = ""
-                _symbol = symbol
-            if _type == "future":
-                if _symbol == "CL":
-                    _contract = Future(_symbol, _month, "NYMEX")
-                else:
-                    _contract = Future(_symbol, _month, "GLOBEX")
-            else:
-                _contract = Stock(_symbol, "SMART", 'USD')
+            _contract = get_contract(symbol)
             contracts.append(_contract)
             # print(contract)
 
@@ -649,24 +641,7 @@ class Engine:
             logger.verbose(f"\n[{datetime.now()}]: A new entry: {symbol}-{direction}-{entry_price}")
         logger.debug(f"Hey, there is a new entry: {symbol}-{direction}-{entry_price}")
 
-        m = re.findall(r"\d+\s*$", symbol)
-        if m:
-            _type = "future"
-            _month = str(int(m[0]) + 2020) + MONTH_DICT[symbol.replace(m[0], "")[-1]]
-            _symbol = symbol.replace(m[0], "")[:-1]
-        else:
-            _type = "stock"
-            _month = ""
-            _symbol = symbol
-
-        if _type == "future":
-            if _symbol == "CL":
-                contracts = [Future(_symbol, _month, "NYMEX")]
-            else:
-                contracts = [Future(_symbol, _month, "GLOBEX")]
-        else:
-            contracts = [Stock(_symbol, "SMART", 'USD')]
-
+        contracts = [get_contract(symbol)]
         ib.qualifyContracts(*contracts)
         ib.reqExecutions()
         tick = float(self.processed_params[symbol]["tick"])
