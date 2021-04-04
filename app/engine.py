@@ -28,27 +28,25 @@ ib.connect("127.0.0.1", 7497, clientId=23)
 
 
 def get_prod_params(prod_params, params):
-    keys = list(prod_params.keys())
-    values = list(prod_params.values())
+    products = [product.strip(",. ") for product in params["products"].split(",")]
+    prod_params_update = {}
+    for product in products:
+        if product in prod_params:
+            val = prod_params[product]
+            try:
+                pairs = [item.strip(",. ") for item in val.split(",")]
+                val_processed = {item.split("=")[0].strip(",. "): eval(item.split("=")[1].strip("(),. ")) for item in
+                                 pairs}
+            except Exception as err:
+                logger.debug(err)
+                val_processed = {}
+            temp = params.copy()
+            temp.update(val_processed)
+            prod_params_update[product] = temp
+        else:
+            prod_params_update[product] = params
 
-    values_processed = []
-    for val in values:
-        try:
-            pairs = [item.strip(",. ") for item in val.split(",")]
-            val_processed = {item.split("=")[0].strip(",. "): eval(item.split("=")[1].strip("(),. ")) for item in pairs}
-            values_processed.append(val_processed)
-        except Exception as err:
-            logger.debug(err)
-            values_processed.append({})
-
-    prod_params = {}
-    for key, value in zip(keys, values_processed):
-        temp = params.copy()
-        temp.update(value)
-        prod_params[key] = temp
-        prod_params[key]["LATEST_BAR_SEEN"] = ""
-
-    return prod_params
+    return prod_params_update
 
 
 def get_bar_duration_size(mins):
@@ -125,10 +123,8 @@ def get_contract(symbol):
         _month = ""
         _symbol = symbol
     if _type == "future":
-        if _symbol == "CL":
-            _contract = Future(_symbol, _month, "NYMEX")
-        else:
-            _contract = Future(_symbol, _month, "GLOBEX")
+        exchange = [key for key in EXCHANGES if _symbol in EXCHANGES[key]][0]
+        _contract = Future(_symbol, _month, exchange)
     else:
         _contract = Stock(_symbol, "SMART", 'USD')
 
@@ -471,6 +467,7 @@ class Engine:
 
     def data_analysis(self):
         logger.debug("\n============== Data analysis =============")
+        # print(self.processed_params)
         symbols = list(self.processed_params.keys())
 
         contracts = []

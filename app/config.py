@@ -12,7 +12,7 @@ class Config:
             params = {}
         if not params:
             params = {
-                "products": "ESH1, ZNH1, AAPL",
+                "products": "ESM1, CLK1, NGK1",
                 "timeframe": "15 mins",
                 "size": "2",
                 "max_current_high_prd": "20",
@@ -39,9 +39,8 @@ class Config:
             prod_params = {}
         if not prod_params:
             prod_params = {
-                "MU": "tick = 0.25, percent_entry = 0.1",
-                "CSCO": "tick = (1/64)",
-                "AAPL": "tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60"
+                "ESM1": "tick = 0.25",
+                "CLK1": "tick = 0.01"
             }
 
         self.params = params
@@ -55,9 +54,8 @@ class Config:
             prod_params = {}
         if not prod_params:
             prod_params = {
-                "MU": "tick = 0.25, percent_entry = 0.1",
-                "CSCO": "tick = (1/64)",
-                "AAPL": "tick = 0.02, size = 25, max_past_high_lag = 5, min_past_low_lag = 5, bar_size = 60"
+                "ESM1": "tick = 0.25",
+                "CLK1": "tick = 0.01"
             }
 
         self.prod_params = prod_params
@@ -67,3 +65,8 @@ MONTH_DICT = {"F": "01", "G": "02", "H": "03", "J": "04", "K": "05", "M": "06", 
               "V": "10", "X": "11", "Z": "12"}
 
 LOG_LEVEL = "VERBOSE"
+
+EXCHANGES = {
+    "GLOBEX": ["ES"],
+    "NYMEX": ["CL", "NG"]
+}
