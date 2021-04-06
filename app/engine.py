@@ -294,34 +294,6 @@ class Engine:
                 if curr_bar_id not in self.tickers[key].max_hold_queue:
                     self.tickers[key].max_hold_queue.append(curr_bar_id)
 
-                if not _ticker.max_stop_exit:
-                    tick = float(self.processed_params[symbol]["tick"])
-                    side = "SELL" if direction == "LONG" else "BUY"
-                    if direction == "LONG":
-                        max_stop_price = custom_round(
-                            entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                                float(self.dfs[symbol].iloc[-1]["sd_px"])), tick)
-                    else:
-                        max_stop_price = custom_round(
-                            entry_price + (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                                float(self.dfs[symbol].iloc[-1]["sd_px"])), tick)
-                    max_stop_order = StopOrder(side, _ticker.quantity, max_stop_price)
-                    self.tickers[key].max_stop_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract,
-                                                                    max_stop_order)
-
-            if _ticker.max_stop_exit:
-                if _ticker.max_stop_exit.orderStatus.status == "Filled":
-                    if LOG_LEVEL == "VERBOSE":
-                        logger.verbose(f"\n[{datetime.now()}]: {symbol} - "
-                                       f"max stop order has been triggered.\nCancelling bracket order...")
-                    logger.debug(f"{symbol} - max stop order has been triggered.\nCancelling bracket order...")
-                    _ticker.exit_filled = True
-                    _ticker.exit_time = str(datetime.now())
-                    _ticker.exit_price = _ticker.max_stop_exit.orderStatus.avgFillPrice
-                    _ticker.exit_channel = "MSL"
-                    _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
-                    continue
-
             if (_ticker.bracket_entry["take_profit"].orderStatus.status == "Filled") or \
                     (_ticker.bracket_entry["stop_loss"].orderStatus.status == "Filled"):
                 _ticker.exit_filled = True
@@ -335,7 +307,6 @@ class Engine:
                 if LOG_LEVEL == "VERBOSE":
                     logger.verbose(f"\n[{datetime.now()}]: {symbol} - exit triggered by {_ticker.exit_channel}!")
                 logger.debug(f"{symbol} - exit triggered by {_ticker.exit_channel}!")
-                _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
                 continue
 
             if not _ticker.exit_filled and _ticker.market_exit and _ticker.market_exit.orderStatus.status == "Filled":
@@ -455,7 +426,6 @@ class Engine:
                     _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
                     del_keys.append(key)
 
-                _ticker.max_stop_exit = ib.cancelOrder(_ticker.max_stop_exit.order)
                 continue
 
     def is_net_flat(self, symbol):
@@ -639,10 +609,6 @@ class Engine:
             logger.debug(f"We have already 10 {direction} positions for {symbol}.\nLets skip this entry!")
             return None
 
-        if LOG_LEVEL == "VERBOSE":
-            logger.verbose(f"\n[{datetime.now()}]: A new entry: {symbol}-{direction}-{entry_price}")
-        logger.debug(f"Hey, there is a new entry: {symbol}-{direction}-{entry_price}")
-
         contracts = [get_contract(symbol)]
         ib.qualifyContracts(*contracts)
         ib.reqExecutions()
@@ -657,13 +623,6 @@ class Engine:
             sl_price = custom_round(
                 entry_price - (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
-            if self.check_entry_overlap(symbol, lmt_price, "LONG"):
-                if LOG_LEVEL == "VERBOSE":
-                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to long at {lmt_price}, but there is a "
-                                   f"short {symbol} at that level.\n Skip this entry.")
-                logger.debug(f"\n[{datetime.now()}]: {symbol} - trying to long at {lmt_price}, but there is a "
-                             f"short {symbol} at that level.\n Skip this entry.")
-                return None
         else:
             side = "SELL"
             lmt_price = custom_round(entry_price + float(self.processed_params[symbol]["tick"]) * float(
@@ -673,13 +632,10 @@ class Engine:
             sl_price = custom_round(
                 entry_price + (float(self.processed_params[symbol]["stop_sd"])) * (self.dfs[symbol].iloc[-1]["sd_px"]),
                 tick)
-            if self.check_entry_overlap(symbol, lmt_price, "SHORT"):
-                if LOG_LEVEL == "VERBOSE":
-                    logger.verbose(f"\n[{datetime.now()}]: {symbol} - trying to short at {lmt_price}, but there is a "
-                                   f"long {symbol} at that level.\n Skip this entry.")
-                logger.debug(f"\n[{datetime.now()}]: {symbol} - trying to short at {lmt_price}, but there is a "
-                             f"long {symbol} at that level.\n Skip this entry.")
-                return None
+
+        if LOG_LEVEL == "VERBOSE":
+            logger.verbose(f"\n[{datetime.now()}]: A new entry: {symbol}-{direction}-{lmt_price}-{tp_price}-{sl_price}")
+        logger.debug(f"Hey, there is a new entry: {symbol}-{direction}-{lmt_price}-{tp_price}-{sl_price}")
 
         size = float(self.processed_params[symbol]["size"])
         _ticker = Tick(lmt_price, size, symbol, direction, str(datetime.now()))
@@ -718,16 +674,6 @@ class Engine:
             curr_bar_id = str(self.dfs[symbol].iloc[-1]["date"])
             if curr_bar_id not in self.tickers[key].max_hold_queue:
                 self.tickers[key].max_hold_queue.append(curr_bar_id)
-
-            if side == "BUY":
-                max_stop_price = custom_round(entry_price - (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                    self.dfs[symbol].iloc[-1]["sd_px"]), tick)
-            else:
-                max_stop_price = custom_round(entry_price + (float(self.processed_params[symbol]["max_stop_sd"])) * (
-                    self.dfs[symbol].iloc[-1]["sd_px"]), tick)
-            _side = "SELL" if side == "BUY" else "BUY"
-            max_stop_order = StopOrder(_side, size, max_stop_price)
-            self.tickers[key].max_stop_exit = ib.placeOrder(contracts[0], max_stop_order)
 
         if LOG_LEVEL != "VERBOSE":
             print(self.tickers[key].bracket_entry, "\n")

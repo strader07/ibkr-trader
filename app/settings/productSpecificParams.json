@@ -1,1 +1,1 @@
-{"ESM1": "tick = 0.25", "CLK1": "tick = 0.01"}
+{"ESM1": "tick = 0.25", "CLK1": "tick = 0.01", "NGK1":  "tick = 0.001"}
