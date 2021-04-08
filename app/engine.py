@@ -643,26 +643,26 @@ class Engine:
         self.tickers[key] = _ticker
         if lmt_price <= current_price:
             if direction == "LONG":
-                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price)
+                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
                 self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
                 self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
                 self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
                 ib.sleep(4)
             else:
-                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price)
+                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
                 self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
                 self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
                 self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
                 ib.sleep(4)
         else:
             if direction == "LONG":
-                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price)
+                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
                 self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
                 self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
                 self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
                 ib.sleep(4)
             else:
-                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price)
+                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
                 self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
                 self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
                 self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
