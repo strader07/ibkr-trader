@@ -1,4 +1,0 @@
-Product,TradeID,Side,Size,EntryTime,EntryPrice,ExitTime,ExitPrice,ExitChannel,RealizedPNL,UnrealizedPNL
-CLK1,CLK1_SHORT_2021-03-19 12:30:00,SHORT,1.0,12:30:12,,,,,,
-ESM1,ESM1_LONG_2021-03-19 12:30:00,LONG,1.0,12:30:23,,,,,,
-ESM1,ESM1_SHORT_2021-03-19 12:30:00,SHORT,1.0,12:30:30,,,,,,
