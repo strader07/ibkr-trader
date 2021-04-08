@@ -104,6 +104,7 @@ def custom_round(data, tick):
 #         return True
 #     return False
 
+
 def is_crossed(last, entry, current):
     if str(last) == "NaN":
         print(last)
