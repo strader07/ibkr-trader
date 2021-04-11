@@ -1,1 +1,20 @@
-{"products": "ESM1, CLK1, NGK1", "timeframe": "5 mins", "size": "1", "max_current_high_prd": "5", "max_past_high_lag": "3", "max_past_high_prd": "10", "min_current_low_prd": "5", "min_past_low_lag": "3", "min_past_low_prd": "10", "percent_change_lag": "1.0", "sd_lag": "10", "tick": "1.0", "stop_limit_ticks": "3.0", "norm_threshold": "0.7", "max_prd_hold": "10", "target_sd": "2.0", "stop_sd": "4.0", "max_stop_sd": "6.0"}
+{
+  "products": "ESM1, CLK1, NGK1",
+  "timeframe": "5 mins",
+  "size": "1",
+  "max_current_high_prd": "5",
+  "max_past_high_lag": "3",
+  "max_past_high_prd": "10",
+  "min_current_low_prd": "5",
+  "min_past_low_lag": "3",
+  "min_past_low_prd": "10",
+  "percent_change_lag": "1.0",
+  "sd_lag": "10",
+  "tick": "1.0",
+  "stop_limit_ticks": "3.0",
+  "norm_threshold": "0.7",
+  "max_prd_hold": "10",
+  "target_sd": "2.0",
+  "stop_sd": "4.0",
+  "max_stop_sd": "6.0"
+}
