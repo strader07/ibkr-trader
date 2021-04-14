@@ -460,8 +460,11 @@ class Engine:
             contracts.append(_contract)
             # print(contract)
 
-        ib.qualifyContracts(*contracts)
-        # ib.reqMarketDataType(4)
+        try:
+            ib.qualifyContracts(*contracts)
+        except Exception as e:
+            print(f"connection issue - {e}")
+            return None
 
         for _contract, symbol in zip(contracts, symbols):
             bar_size, duration = get_bar_duration_size(self.processed_params[symbol]["timeframe"])
