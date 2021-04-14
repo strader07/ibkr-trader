@@ -264,7 +264,11 @@ class Engine:
 
         del_keys = []
         timed_exits = {}
-        ib.reqExecutions()
+        try:
+            ib.reqExecutions()
+        except Exception as e:
+            print(f"connection issue - {e}")
+            return None
         for key in self.tickers:
             logger.debug(key)
             _ticker = self.tickers[key]
@@ -281,7 +285,10 @@ class Engine:
                         logger.verbose(f"\n[{datetime.now()}]: {key} "
                                        f"- entry not filled within the first bar. Cancel orders!")
                     logger.debug(f"{key} - entry not filled within the first bar. Cancel orders!")
-                    ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
+                    try:
+                        ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
+                    except Exception as e:
+                        print(f"connection issue - {e}")
                     del_keys.append(key)
                     continue
                 if current_bar_id not in _ticker.max_hold_queue and len(_ticker.max_hold_queue) == 0:
@@ -373,8 +380,12 @@ class Engine:
             tp_order.transmit = True
             sl_order.auxPrice = sl_price
 
-            _ticker.bracket_entry["take_profit"] = ib.placeOrder(_contract, tp_order)
-            _ticker.bracket_entry["stop_loss"] = ib.placeOrder(_contract, sl_order)
+            try:
+                _ticker.bracket_entry["take_profit"] = ib.placeOrder(_contract, tp_order)
+                _ticker.bracket_entry["stop_loss"] = ib.placeOrder(_contract, sl_order)
+            except Exception as e:
+                print(f"connection issue - {e}")
+                continue
             ib.sleep(2)
             if LOG_LEVEL == "VERBOSE":
                 logger.verbose(f"\n[{datetime.now()}]: {key} - Take profit and stop loss updated!")
@@ -411,8 +422,12 @@ class Engine:
                         logger.debug(f"{symbol} - is currently in a net flat! Skip closing")
                         continue
                     side = "SELL" if _ticker.direction == "LONG" else "BUY"
-                    _order = MarketOrder(side, _ticker.quantity)
-                    _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
+                    try:
+                        _order = MarketOrder(side, _ticker.quantity)
+                        _ticker.market_exit = ib.placeOrder(_ticker.bracket_entry["limit_entry"].contract, _order)
+                    except Exception as e:
+                        print(f"connection issue - {e}")
+                        continue
                     ib.sleep(4)
                     if _ticker.market_exit.orderStatus.status == "Filled":
                         _ticker.exit_filled = True
@@ -421,13 +436,6 @@ class Engine:
                         _ticker.exit_price = _ticker.market_exit.orderStatus.avgFillPrice
 
                     _ticker.bracket_entry["take_profit"] = ib.cancelOrder(_ticker.bracket_entry["take_profit"].order)
-
-                else:
-                    logger.debug(f"{symbol} - {key}: entry limit order hasn't been triggered yet. Cancel the order.")
-                    _ticker.bracket_entry["limit_entry"] = ib.cancelOrder(_ticker.bracket_entry["limit_entry"].order)
-                    del_keys.append(key)
-
-                continue
 
     def is_net_flat(self, symbol):
         keys = [key for key in self.tickers if self.tickers[key].entry_filled]
@@ -510,6 +518,7 @@ class Engine:
 
     def check_entry_trigger(self):
         logger.debug("\n============== Checking for entries long/short condition =============")
+        del_symbols = []
         for symbol in self.dfs.keys():
             df = self.dfs[symbol]
             current_bar = str(df.iloc[-1]["date"]) + "_" + str(self.processed_params[symbol]["timeframe"])
@@ -559,11 +568,21 @@ class Engine:
                 product_state["short_cond"] = True
 
             if long_cond or short_cond:
-                product_state["last_price"] = get_market_price(symbol)
+                try:
+                    product_state["last_price"] = get_market_price(symbol)
+                except Exception as e:
+                    print(f"{symbol} - connection issue (check_entry_trigger) - {e}")
+                    del_symbols.append(symbol)
+                    continue
+
             self.product_live_states[symbol] = product_state
+
+        for symbol in del_symbols:
+            del self.dfs[symbol]
 
     def listen_for_entry(self):
         logger.debug("\n============== Listening for entry =============")
+        del_symbols = []
         for symbol in self.dfs.keys():
             df = self.dfs[symbol]
             long_key = symbol + "_" + "LONG" + "_" + str(self.dfs[symbol].iloc[-1]["date"])
@@ -576,7 +595,12 @@ class Engine:
                 else:
                     logger.debug(f"{symbol} - long condition true. Listening for a long entry.")
                     last_price = self.product_live_states[symbol]["last_price"]
-                    current_price = get_market_price(symbol)
+                    try:
+                        current_price = get_market_price(symbol)
+                    except Exception as e:
+                        print(f"{symbol} - connection issue (listen_for_entry) - {e}")
+                        del_symbols.append(symbol)
+                        continue
                     entry_price = df.iloc[-1]["long_entry_px"]
                     logger.debug(f"Last_price: {last_price}, current_price: {current_price}, "
                                  f"long_entry_price: {entry_price}")
@@ -592,13 +616,21 @@ class Engine:
                 else:
                     logger.debug(f"{symbol} - short condition true. Listening for a short entry.")
                     last_price = self.product_live_states[symbol]["last_price"]
-                    current_price = get_market_price(symbol)
+                    try:
+                        current_price = get_market_price(symbol)
+                    except Exception as e:
+                        print(f"{symbol} - connection issue (listen_for_entry) - {e}")
+                        del_symbols.append(symbol)
+                        continue
                     entry_price = df.iloc[-1]["short_entry_px"]
                     logger.debug(f"Last_price: {last_price}, current_price: {current_price}, "
                                  f"short_entry_price: {entry_price}")
                     if is_crossed(last_price, entry_price, current_price):
                         logger.debug(f"{symbol} - entry price crossed. Entering a short position.")
                         self.enter_trades(symbol, "SHORT", entry_price, current_price)
+
+        for symbol in del_symbols:
+            del self.dfs[symbol]
 
     def enter_trades(self, symbol, direction, entry_price, current_price):
         num_trades_product = len([key for key in self.tickers.keys() if symbol in key and direction in key and
@@ -611,8 +643,14 @@ class Engine:
             return None
 
         contracts = [get_contract(symbol)]
-        ib.qualifyContracts(*contracts)
-        ib.reqExecutions()
+        try:
+            ib.qualifyContracts(*contracts)
+            ib.reqExecutions()
+        except Exception as e:
+            logger.debug(f"IB request error - {e}")
+            del self.dfs[symbol]
+            return None
+
         tick = float(self.processed_params[symbol]["tick"])
 
         if direction == "LONG":
@@ -644,29 +682,49 @@ class Engine:
         self.tickers[key] = _ticker
         if lmt_price <= current_price:
             if direction == "LONG":
-                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
-                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
-                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
-                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                try:
+                    bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
+                    self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                    self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                    self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                except Exception as e:
+                    print(f"connection issue - {e}")
+                    del self.tickers[key]
+                    return None
                 ib.sleep(4)
             else:
-                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
-                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
-                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
-                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                try:
+                    bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
+                    self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                    self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                    self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                except Exception as e:
+                    print(f"connection issue - {e}")
+                    del self.tickers[key]
+                    return None
                 ib.sleep(4)
         else:
             if direction == "LONG":
-                bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
-                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
-                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
-                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                try:
+                    bracket = ib.bracketOrderByStop(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
+                    self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                    self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                    self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                except Exception as e:
+                    print(f"connection issue - {e}")
+                    del self.tickers[key]
+                    return None
                 ib.sleep(4)
             else:
-                bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
-                self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
-                self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
-                self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                try:
+                    bracket = ib.bracketOrder(side, size, lmt_price, tp_price, sl_price, outsideRth=True)
+                    self.tickers[key].bracket_entry["limit_entry"] = ib.placeOrder(contracts[0], bracket[0])
+                    self.tickers[key].bracket_entry["take_profit"] = ib.placeOrder(contracts[0], bracket[1])
+                    self.tickers[key].bracket_entry["stop_loss"] = ib.placeOrder(contracts[0], bracket[2])
+                except Exception as e:
+                    print(f"connection issue - {e}")
+                    del self.tickers[key]
+                    return None
                 ib.sleep(4)
 
         if self.tickers[key].bracket_entry["limit_entry"].orderStatus.status == "Filled":
@@ -687,8 +745,7 @@ class Engine:
             entries = [self.tickers[key].limit_price for key in self.tickers if not self.tickers[key].exit_filled and
                        self.tickers[key].direction == "LONG" and symbol in key]
 
-        print(entries)
-
+        # print(entries)
         return new_entry_price in entries
 
 
