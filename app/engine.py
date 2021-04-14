@@ -598,11 +598,9 @@ class Engine:
                 if curr_bar_id in self.tickers[key_short].max_hold_queue:
                     continue
 
-            product_state = dict()
-            product_state["last_bar"] = str(df.iloc[-1]["date"]) + "_" + str(self.processed_params[symbol]["timeframe"])
-            product_state["long_cond"] = False
-            product_state["short_cond"] = False
-            product_state["last_price"] = None
+            product_state = {
+                "last_bar": str(df.iloc[-1]["date"]) + "_" + str(self.processed_params[symbol]["timeframe"]),
+                "long_cond": False, "short_cond": False, "last_price": None}
 
             long_cond = (df.iloc[-1]["open"] <= df.iloc[-1][
                 "long_entry_px"])  # and (df.iloc[-1]["current_max"] == df.iloc[-1]["past_period_max_high"]) and \
