@@ -172,7 +172,6 @@ class Engine:
     def run_cycle(self):
         while True:
             if self.app_status != "$$$":
-                ib.sleep(1)
                 logger.debug("\n\n=================== Cycle begin! =====================\n")
                 logger.debug(f"\nCurrent time: {datetime.now()}")
                 if LOG_LEVEL != "VERBOSE":
@@ -196,7 +195,6 @@ class Engine:
                 self.app_status = "OFF"
 
     def handle_connection_issue(self):
-        print(self.tickers)
         if self.connection_status:
             return None
 
@@ -216,6 +214,7 @@ class Engine:
                 ib.sleep(5)
 
         del_keys = []
+        ib.reqExecutions()
         for key in self.tickers:
             _ticker = self.tickers[key]
             if not _ticker.bracket_entry["limit_entry"]:
@@ -278,7 +277,11 @@ class Engine:
                                                            (_ticker.exit_price - _ticker.entry_price) * (-1)
                     trade_summary["UnrealizedPNL"] = ""
                 else:
-                    current_price = get_market_price(_ticker.symbol)
+                    try:
+                        current_price = get_market_price(_ticker.symbol)
+                    except Exception as e:
+                        logger.debug(e)
+                        continue
                     if _ticker.direction == "LONG":
                         trade_summary["UnrealizedPNL"] = _ticker.quantity * (current_price - _ticker.entry_price)
                     else:
@@ -672,7 +675,7 @@ class Engine:
                     if is_crossed(last_price, entry_price, current_price):
                         logger.debug(f"{symbol} - entry price crossed. Entering a long position.")
                         try:
-                            self.enter_trades(symbol, "SHORT", entry_price, current_price)
+                            self.enter_trades(symbol, "LONG", entry_price, current_price)
                         except Exception as e:
                             print(f"{symbol} - connection issue (listen_for_entry) - {e}")
                             self.update_connection_status()
