@@ -3,14 +3,14 @@ import numpy as np
 from scipy.stats import norm
 from sortedcontainers import SortedDict
 from datetime import datetime
-# from threading import Thread
+from threading import Thread
 import re
 import logging
 import verboselogs
 
 from ib_insync import *
 from config import *
-# from gui import main
+from gui import main
 from tick import Tick
 
 logger = verboselogs.VerboseLogger('verbose')
@@ -803,7 +803,7 @@ class Engine:
 
 
 if __name__ == "__main__":
-    # th = Thread(target=main)
-    # th.start()
+    th = Thread(target=main)
+    th.start()
     engine = Engine()
     engine.run_cycle()
